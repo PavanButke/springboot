@@ -1,7 +1,11 @@
 package com.zensar.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Copoun {
-	
+	@Id
 	private int copounId;
 	private String copounName;
 	private int copounPrice;

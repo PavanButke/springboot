@@ -40,6 +40,27 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+		<!--   <dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<scope>runtime</scope>
+		</dependency> -->
+	
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+	
 	</dependencies>
 
 	<build>
