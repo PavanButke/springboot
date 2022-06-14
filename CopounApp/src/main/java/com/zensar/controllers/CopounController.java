@@ -24,7 +24,7 @@ public class CopounController {
 	}
 	
 	
-	@RequestMapping("/copouns/{copounId}")
+	@RequestMapping(value="/copouns/{copounId}" , method=RequestMethod.GET)
 	public Copoun getCopoun(@PathVariable("copounId") int CopounId) {
 		
 		for(Copoun copoun:copouns) {
