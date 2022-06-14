@@ -3,16 +3,17 @@ package com.zensar.entity;
 public class Copoun {
 	
 	private int copounId;
-	private String coupounName;
-	private int couponPrice;
+	private String copounName;
+	private int copounPrice;
 	public Copoun() {
 		super();
 	}
-	public Copoun(int copounId, String coupounName, int couponPrice) {
+	
+	public Copoun(int copounId, String copounName, int copounPrice) {
 		super();
 		this.copounId = copounId;
-		this.coupounName = coupounName;
-		this.couponPrice = couponPrice;
+		this.copounName = copounName;
+		this.copounPrice = copounPrice;
 	}
 	
 	
@@ -22,21 +23,21 @@ public class Copoun {
 	public void setCopounId(int copounId) {
 		this.copounId = copounId;
 	}
-	public String getCoupounName() {
-		return coupounName;
+	public String getCopounName() {
+		return copounName;
 	}
-	public void setCoupounName(String coupounName) {
-		this.coupounName = coupounName;
+	public void setCopounName(String copounName) {
+		this.copounName = copounName;
 	}
-	public int getCouponPrice() {
-		return couponPrice;
+	public int getCopounPrice() {
+		return copounPrice;
 	}
-	public void setCouponPrice(int couponPrice) {
-		this.couponPrice = couponPrice;
+	public void setCopounPrice(int copounPrice) {
+		this.copounPrice = copounPrice;
 	}
 	@Override
 	public String toString() {
-		return "Copoun [copounId=" + copounId + ", coupounName=" + coupounName + ", couponPrice=" + couponPrice + "]";
+		return "Copoun [copounId=" + copounId + ", copounName=" + copounName + ", copounPrice=" + copounPrice + "]";
 	}
 	
 	
