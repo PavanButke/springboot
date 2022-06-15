@@ -32,19 +32,27 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public Copoun insertCopoun(CopounDto copounDto) {
+	public CopounDto insertCopoun(CopounDto copounDto) {
 		// TODO Auto-generated method stub
 		
 		Copoun copoun= mapToEntity(copounDto);
+		
+		
+		
 //		Copoun copoun = new Copoun();
 //		copoun.setCopounId(copounDto.getCopounId());
 //		copoun.setCopounCode(copounDto.getCopounCode());
 //		copoun.setExpDate(copounDto.getExpDate());
-//		
+//		codebypavan130797
 		
-		copounRepository.save(copoun);
+		Copoun generatedCopoun = copounRepository.save(copoun);
 		
-		return copoun;
+		CopounDto dto = new CopounDto();
+		dto.setCopounId(generatedCopoun.getCopounId());
+		dto.setCopounCode(generatedCopoun.getCopounCode());
+		dto.setExpDate(generatedCopoun.getExpDate());
+		
+		return dto;
 		
 	}
 /*changesbypavan*/

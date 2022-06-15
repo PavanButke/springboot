@@ -12,7 +12,7 @@ public interface CopounService {
 	
 	public Copoun getCopoun(int copounIdDto);
 	public List<Copoun> getAllCopouns();
-	public Copoun insertCopoun(CopounDto copoun);
+	public CopounDto insertCopoun(CopounDto copoun);
 	public Copoun updateCopoun(int copounId, CopounDto copounDto);
 	public void deleteCopoun(int copounIdDto);
 	

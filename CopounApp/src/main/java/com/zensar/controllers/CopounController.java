@@ -38,7 +38,7 @@ public class CopounController {
 	}
 
 	@PostMapping(value = "/copouns"  )
-	public Copoun  insertCopoun(@RequestBody CopounDto copounDto) {
+	public CopounDto  insertCopoun(@RequestBody CopounDto copounDto) {
 			
 		return copounService.insertCopoun(copounDto);
 			
