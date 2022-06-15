@@ -13,7 +13,7 @@ public class CopounDto {
 		this.copounId = copounId;
 		this.copounCode = copounCode;
 		this.expDate = expDate;
-	}
+	}	/*changesbypavan*/
 	public int getCopounId() {
 		return copounId;
 	}
@@ -37,6 +37,6 @@ public class CopounDto {
 		return "CopounDto [copounId=" + copounId + ", copounCode=" + copounCode + ", expDate=" + expDate + "]";
 	}
 	
-	
+
 		
 }
