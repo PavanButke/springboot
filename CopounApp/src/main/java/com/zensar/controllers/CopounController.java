@@ -33,7 +33,7 @@ public class CopounController {
 	}
 
 	@GetMapping(value = { "/copouns", "/listOfCopouns"} )
-	public List<Copoun> getAllCopouns() {
+	public List<CopounDto> getAllCopouns() {
 		return copounService.getAllCopouns();
 	}
 

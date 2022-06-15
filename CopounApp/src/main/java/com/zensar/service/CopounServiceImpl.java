@@ -1,5 +1,6 @@
 package com.zensar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,20 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public List<Copoun> getAllCopouns() {
+	public List<CopounDto> getAllCopouns() {
 		// TODO Auto-generated method stub
-		return copounRepository.findAll();
+		
+		List<Copoun> copounList = copounRepository.findAll();
+		
+		List<CopounDto> copounListDto = new ArrayList<CopounDto>();
+		for(Copoun copoun : copounList) {
+				copounListDto.add(mapToDto(copoun));	
+		}
+		
+		return copounListDto;
+		
+		
+		
 	}
 
 	@Override
@@ -54,9 +66,9 @@ public class CopounServiceImpl implements CopounService {
 //		dto.setCopounCode(generatedCopoun.getCopounCode());
 //		dto.setExpDate(generatedCopoun.getExpDate());
 //		
-		 CopounDto mapToDto= mapToDto(generatedCopoun);
+		 CopounDto dto= mapToDto(generatedCopoun);
 		
-		 return mapToDto;
+		 return dto;
 		
 	}
 /*changesbypavan*/
@@ -85,9 +97,9 @@ public class CopounServiceImpl implements CopounService {
 	public CopounDto mapToDto(Copoun copoun ) {
 
 		CopounDto dto = new CopounDto();
-		copoun.setCopounId(copoun.getCopounId());
-		copoun.setCopounCode(copoun.getCopounCode());
-		copoun.setExpDate(copoun.getExpDate());
+		dto.setCopounId(copoun.getCopounId());
+		dto.setCopounCode(copoun.getCopounCode());
+		dto.setExpDate(copoun.getExpDate());
 		
 		return dto;
 	}

@@ -14,6 +14,8 @@ public class CopounDto {
 		this.copounCode = copounCode;
 		this.expDate = expDate;
 	}	/*changesbypavan*/
+	
+	
 	public int getCopounId() {
 		return copounId;
 	}
