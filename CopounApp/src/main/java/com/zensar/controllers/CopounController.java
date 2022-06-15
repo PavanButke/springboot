@@ -20,23 +20,23 @@ import com.zensar.entity.Copoun;
 import com.zensar.service.CopounService;
 
 @RestController
-@RequestMapping("/copoun-api")
+@RequestMapping(value="/copoun-api", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE} , consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 public class CopounController {
 	
 	@Autowired
 	private CopounService copounService;
 	
-	@GetMapping(value = "/copouns/{copounId}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	@GetMapping(value = "/copouns/{copounId}" )
 	public Copoun getCopoun(@PathVariable("copounId") int copounId) {
 		return copounService.getCopoun(copounId);
 	}
 
-	@GetMapping(value = { "/copouns", "/listOfCopouns"}, produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	@GetMapping(value = { "/copouns", "/listOfCopouns"} )
 	public List<Copoun> getAllCopouns() {
 		return copounService.getAllCopouns();
 	}
 
-	@PostMapping(value = "/copouns" , consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	@PostMapping(value = "/copouns"  )
 	public void  insertCopoun(@RequestBody Copoun copoun) {
 			
 		copounService.insertCopoun(copoun);
