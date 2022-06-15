@@ -10,11 +10,11 @@ import com.zensar.entity.Copoun;
 
 public interface CopounService {
 	
-	public Copoun getCopoun(int copounId);
+	public Copoun getCopoun(int copounIdDto);
 	public List<Copoun> getAllCopouns();
 	public void insertCopoun(CopounDto copoun);
-	public void updateCopoun(int copounId, Copoun copoun);
-	public void deleteCopoun(int copounId);
+	public void updateCopoun(int copounId, CopounDto copounDto);
+	public void deleteCopoun(int copounIdDto);
 	
 
 }

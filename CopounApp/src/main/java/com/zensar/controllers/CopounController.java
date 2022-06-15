@@ -27,9 +27,9 @@ public class CopounController {
 	@Autowired
 	private CopounService copounService;
 	
-	@GetMapping(value = "/copouns/{copounId}" )
-	public Copoun getCopoun(@PathVariable("copounId") int copounId) {
-		return copounService.getCopoun(copounId);
+	@GetMapping(value = "/copouns/{copounIdDto}" )
+	public Copoun getCopoun(@PathVariable("copounIdDto") int copounIdDto) {
+		return copounService.getCopoun(copounIdDto);
 	}
 
 	@GetMapping(value = { "/copouns", "/listOfCopouns"} )
@@ -44,15 +44,15 @@ public class CopounController {
 			
 	}
 
-	@PutMapping(value = "/copouns/{copounId}" )
-	public void updateCopoun(@PathVariable("copounId") int copounId, @RequestBody Copoun copoun) {
+	@PutMapping(value = "/copouns/{copounIdDto}" )
+	public void updateCopoun(@PathVariable("copounIdDto") int copounIdDto, @RequestBody CopounDto copounDto) {
 		
-		copounService.updateCopoun(copounId, copoun);
+		copounService.updateCopoun(copounIdDto, copounDto);
 	}
 
-	@DeleteMapping(value = "/copouns/{copounId}")
-	public void deleteCopoun(@PathVariable("copounId") int copounId) {
-		copounService.deleteCopoun(copounId);
+	@DeleteMapping(value = "/copouns/{copounIdDto}")
+	public void deleteCopoun(@PathVariable("copounIdDto") int copounIdDto) {
+		copounService.deleteCopoun(copounIdDto);
 	}
 
 }

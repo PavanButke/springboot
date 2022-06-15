@@ -1,6 +1,5 @@
 package com.zensar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,10 @@ public class CopounServiceImpl implements CopounService {
 	private CopounRepository copounRepository;
 
 	@Override
-	public Copoun getCopoun(int copounId) {
+	public Copoun getCopoun(int copounIdDto) {
 		// TODO Auto-generated method stub
 		
-		return copounRepository.findById(copounId).get();
+		return copounRepository.findById(copounIdDto).get();
 	}
 
 	@Override
@@ -46,15 +45,21 @@ public class CopounServiceImpl implements CopounService {
 	}
 /*changesbypavan*/
 	@Override
-	public void updateCopoun(int copounId, Copoun copoun) {
+	public void updateCopoun(int copounIdDto, CopounDto copounDto) {
 		// TODO Auto-generated method stub
-			copounRepository.save(copoun);
+		Copoun copoun = new Copoun();
+		copoun.setCopounId(copounDto.getCopounId());
+		copoun.setCopounCode(copounDto.getCopounCode());
+		copoun.setExpDate(copounDto.getExpDate());
+		
+		
+		copounRepository.save(copoun);
 	}
 
 	@Override
-	public void deleteCopoun(int copounId) {
+	public void deleteCopoun(int copounIdDto) {
 		// TODO Auto-generated method stub
-		copounRepository.deleteById(copounId);
+		copounRepository.deleteById(copounIdDto);
 
 	}
 
