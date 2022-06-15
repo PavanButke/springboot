@@ -32,7 +32,7 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public void insertCopoun(CopounDto copounDto) {
+	public Copoun insertCopoun(CopounDto copounDto) {
 		// TODO Auto-generated method stub
 		
 		Copoun copoun= mapToEntity(copounDto);
@@ -44,10 +44,12 @@ public class CopounServiceImpl implements CopounService {
 		
 		copounRepository.save(copoun);
 		
+		return copoun;
+		
 	}
 /*changesbypavan*/
 	@Override
-	public void updateCopoun(int copounIdDto, CopounDto copounDto) {
+	public Copoun updateCopoun(int copounIdDto, CopounDto copounDto) {
 		// changesbypavan TODO Auto-generated method stub
 //		Copoun copoun = new Copoun();
 //		copoun.setCopounId(copounDto.getCopounId());
@@ -57,6 +59,7 @@ public class CopounServiceImpl implements CopounService {
 		Copoun copoun= mapToEntity(copounDto);
 		
 		copounRepository.save(copoun);
+		return copoun;
 	}
 
 	@Override

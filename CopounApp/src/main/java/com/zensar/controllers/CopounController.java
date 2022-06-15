@@ -38,16 +38,16 @@ public class CopounController {
 	}
 
 	@PostMapping(value = "/copouns"  )
-	public void  insertCopoun(@RequestBody CopounDto copounDto) {
+	public Copoun  insertCopoun(@RequestBody CopounDto copounDto) {
 			
-		copounService.insertCopoun(copounDto);
+		return copounService.insertCopoun(copounDto);
 			
 	}
 
 	@PutMapping(value = "/copouns/{copounIdDto}" )
-	public void updateCopoun(@PathVariable("copounIdDto") int copounIdDto, @RequestBody CopounDto copounDto) {
+	public Copoun updateCopoun(@PathVariable("copounIdDto") int copounIdDto, @RequestBody CopounDto copounDto) {
 		
-		copounService.updateCopoun(copounIdDto, copounDto);
+		return copounService.updateCopoun(copounIdDto, copounDto);
 	}
 
 	@DeleteMapping(value = "/copouns/{copounIdDto}")

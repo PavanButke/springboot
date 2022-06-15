@@ -12,8 +12,8 @@ public interface CopounService {
 	
 	public Copoun getCopoun(int copounIdDto);
 	public List<Copoun> getAllCopouns();
-	public void insertCopoun(CopounDto copoun);
-	public void updateCopoun(int copounId, CopounDto copounDto);
+	public Copoun insertCopoun(CopounDto copoun);
+	public Copoun updateCopoun(int copounId, CopounDto copounDto);
 	public void deleteCopoun(int copounIdDto);
 	
 
