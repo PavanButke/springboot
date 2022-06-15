@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.service.CopounService;
 
@@ -37,13 +38,13 @@ public class CopounController {
 	}
 
 	@PostMapping(value = "/copouns"  )
-	public void  insertCopoun(@RequestBody Copoun copoun) {
+	public void  insertCopoun(@RequestBody CopounDto copounDto) {
 			
-		copounService.insertCopoun(copoun);
+		copounService.insertCopoun(copounDto);
 			
 	}
 
-	@PutMapping(value = "/copouns/{copounId}" , consumes =  {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	@PutMapping(value = "/copouns/{copounId}" )
 	public void updateCopoun(@PathVariable("copounId") int copounId, @RequestBody Copoun copoun) {
 		
 		copounService.updateCopoun(copounId, copoun);

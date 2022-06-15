@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.repository.CopounRepository;
+
 
 
 @Service
@@ -30,8 +32,15 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public void insertCopoun(Copoun copoun) {
+	public void insertCopoun(CopounDto copounDto) {
 		// TODO Auto-generated method stub
+		
+		Copoun copoun = new Copoun();
+		copoun.setCopounId(copounDto.getCopounId());
+		copoun.setCopounCode(copounDto.getCopounCode());
+		copoun.setExpDate(copounDto.getExpDate());
+		
+		
 		copounRepository.save(copoun);
 		
 	}
