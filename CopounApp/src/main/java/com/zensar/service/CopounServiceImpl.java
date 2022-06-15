@@ -81,7 +81,7 @@ public class CopounServiceImpl implements CopounService {
 	}
 /*changesbypavan*/
 	@Override
-	public Copoun updateCopoun(int copounId, CopounDto copounDto) {
+	public CopounDto updateCopoun(int copounId, CopounDto copounDto) {
 		// changesbypavan TODO Auto-generated method stub
 //		Copoun copoun = new Copoun();
 //		copoun.setCopounId(copounDto.getCopounId());
@@ -91,7 +91,7 @@ public class CopounServiceImpl implements CopounService {
 		Copoun copoun=  modelMapper.map(copounDto, Copoun.class);
 		
 		copounRepository.save(copoun);
-		return copoun;
+		return copounDto;
 	}
 
 	@Override
