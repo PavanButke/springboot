@@ -18,9 +18,11 @@ public class CopounServiceImpl implements CopounService {
 	private CopounRepository copounRepository;
 
 	@Override
-	public Copoun getCopoun(int copounIdDto) {
+	public CopounDto getCopoun(int copounId) {
 		// TODO Auto-generated method stub
-		return copounRepository.findById(copounIdDto).get();
+		Copoun copoun = copounRepository.findById(copounId).get();
+		CopounDto dto = mapToDto(copoun);
+		return dto;
 	
 		
 	}
@@ -47,17 +49,19 @@ public class CopounServiceImpl implements CopounService {
 		
 		Copoun generatedCopoun = copounRepository.save(copoun);
 		
-		CopounDto dto = new CopounDto();
-		dto.setCopounId(generatedCopoun.getCopounId());
-		dto.setCopounCode(generatedCopoun.getCopounCode());
-		dto.setExpDate(generatedCopoun.getExpDate());
+//		CopounDto dto = new CopounDto();
+//		dto.setCopounId(generatedCopoun.getCopounId());
+//		dto.setCopounCode(generatedCopoun.getCopounCode());
+//		dto.setExpDate(generatedCopoun.getExpDate());
+//		
+		 CopounDto mapToDto= mapToDto(generatedCopoun);
 		
-		return dto;
+		 return mapToDto;
 		
 	}
 /*changesbypavan*/
 	@Override
-	public Copoun updateCopoun(int copounIdDto, CopounDto copounDto) {
+	public Copoun updateCopoun(int copounId, CopounDto copounDto) {
 		// changesbypavan TODO Auto-generated method stub
 //		Copoun copoun = new Copoun();
 //		copoun.setCopounId(copounDto.getCopounId());
@@ -71,12 +75,23 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public void deleteCopoun(int copounIdDto) {
+	public void deleteCopoun(int copounId) {
 		// TODO Auto-generated method stub
-		copounRepository.deleteById(copounIdDto);
+		copounRepository.deleteById(copounId);
 
 	}
 
+	
+	public CopounDto mapToDto(Copoun copoun ) {
+
+		CopounDto dto = new CopounDto();
+		copoun.setCopounId(copoun.getCopounId());
+		copoun.setCopounCode(copoun.getCopounCode());
+		copoun.setExpDate(copoun.getExpDate());
+		
+		return dto;
+	}
+	
 	public Copoun mapToEntity(CopounDto copounDto ) {
 
 	Copoun copoun = new Copoun();
