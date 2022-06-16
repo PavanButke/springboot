@@ -15,8 +15,8 @@ public interface CopounService {
 	public CopounDto insertCopoun(CopounDto copoun);
 	public CopounDto updateCopoun(int copounId, CopounDto copounDto);
 	public void deleteCopoun(int copounId);
-	List<Copoun> getByCopounCode(String copounName);
-	List<Copoun> findByCopounCodeAndExpDate(String copounCode , String expDate);
+	List<CopounDto> getByCopounCode(String copounName);
+	List<CopounDto> findByCopounCodeAndExpDate(String copounCode , String expDate);
 	
 
 }

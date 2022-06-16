@@ -11,6 +11,7 @@ import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.repository.CopounRepository;
 
+
 @Service
 public class CopounServiceImpl implements CopounService {
 
@@ -97,15 +98,29 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public List<Copoun> getByCopounCode(String copounCode) {
+	public List<CopounDto> getByCopounCode(String copounCode) {
 		// TODO Auto-generated method stub
-		return copounRepository.check(copounCode);
+		List<Copoun> copouns= copounRepository.check(copounCode );
+		List<CopounDto> copounDtos = new ArrayList<CopounDto>();
+		
+		for(Copoun copoun: copouns) {
+		 copounDtos.add(modelMapper.map(copoun, CopounDto.class));
+		}
+		
+		return copounDtos;
 	}
 
 	@Override
-	public List<Copoun> findByCopounCodeAndExpDate(String copounCode, String expDate) {
+	public List<CopounDto> findByCopounCodeAndExpDate(String copounCode, String expDate) {
 		// TODO Auto-generated method stub
-		return copounRepository.check2(copounCode, expDate);
+		List<Copoun> copouns= copounRepository.check2(copounCode , expDate);
+		List<CopounDto> copounDtos = new ArrayList<CopounDto>();
+		
+		for(Copoun copoun: copouns) {
+		 copounDtos.add(modelMapper.map(copoun, CopounDto.class));
+		}
+		
+		return copounDtos;
 
 	}
 

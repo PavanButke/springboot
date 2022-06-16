@@ -63,13 +63,16 @@ public class CopounController {
 	}
 
 	@GetMapping("/copouns/offer/{copounCode}")
-	public List<Copoun> getByCopounCode(@PathVariable("copounCode") String copounCode) {
-		return copounService.getByCopounCode(copounCode);
+	public ResponseEntity< List<CopounDto>> getByCopounCode(@PathVariable("copounCode") String copounCode) {
+		
+		return new ResponseEntity<List<CopounDto>>(copounService.getByCopounCode(copounCode), HttpStatus.OK);
+				
 	}
 
 	@GetMapping("/copouns/{copounCode}/{expDate}")
-	public List<Copoun> findByCopounCodeAndExpDate(@PathVariable("copounCode") String copounCode,
+	public ResponseEntity< List<CopounDto>> findByCopounCodeAndExpDate(@PathVariable("copounCode") String copounCode,
 			@PathVariable("expDate") String expDate) {
-		return copounService.findByCopounCodeAndExpDate(copounCode, expDate);
+		 
+		return new ResponseEntity<List<CopounDto>>(copounService.findByCopounCodeAndExpDate(copounCode, expDate), HttpStatus.OK);
 	}
 }
