@@ -24,6 +24,7 @@ import com.zensar.service.CopounService;
 
 
 
+
 @RestController
 @RequestMapping(value="/copoun-api", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE} , consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 public class CopounController {
@@ -39,8 +40,8 @@ public class CopounController {
 	}
 
 	@GetMapping(value = { "/copouns", "/listOfCopouns"} )
-	public List<CopounDto> getAllCopouns() {
-		return copounService.getAllCopouns();
+	public ResponseEntity< List<CopounDto>> getAllCopouns() {
+		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(),HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/copouns"  )
@@ -62,5 +63,11 @@ public class CopounController {
 	public ResponseEntity<String> deleteCopoun(@PathVariable("copounId") int copounId) {
 		copounService.deleteCopoun(copounId);
 		return new ResponseEntity<String>("You Losted the copoun!", HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/copouns/offer/{copounName}")
+	public List<Copoun> getByCopounCode(@PathVariable("copounCode") String copounCode) {
+		return copounService.getByCopounCode(copounCode);
 	}
 }
