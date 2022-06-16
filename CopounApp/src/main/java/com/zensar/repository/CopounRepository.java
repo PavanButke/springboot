@@ -10,6 +10,6 @@ public interface CopounRepository extends JpaRepository<Copoun, Integer> {
 	
 
 
-	List<Copoun> getByCopounCode(String copounCode);
+	List<Copoun> findByCopounCode(String copounCode);
 
 }

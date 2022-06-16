@@ -104,7 +104,7 @@ public class CopounServiceImpl implements CopounService {
 	@Override
 	public List<Copoun> getByCopounCode(String copounCode) {
 		// TODO Auto-generated method stub
-		return copounRepository.getByCopounCode(copounCode);
+		return copounRepository.findByCopounCode(copounCode);
 	}
 
 	
