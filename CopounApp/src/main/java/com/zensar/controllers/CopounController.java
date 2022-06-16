@@ -66,7 +66,7 @@ public class CopounController {
 	}
 	
 	
-	@GetMapping("/copouns/offer/{copounName}")
+	@GetMapping("/copouns/offer/{copounCode}")
 	public List<Copoun> getByCopounCode(@PathVariable("copounCode") String copounCode) {
 		return copounService.getByCopounCode(copounCode);
 	}
