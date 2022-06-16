@@ -107,6 +107,13 @@ public class CopounServiceImpl implements CopounService {
 		return copounRepository.findByCopounCode(copounCode);
 	}
 
+	@Override
+	public List<Copoun> findByCopounCodeAndExpDate(String copounCode, String expDate) {
+		// TODO Auto-generated method stub
+		return copounRepository.findByCopounCodeAndExpDate(copounCode ,expDate);
+	
+	}
+
 	
 //	public CopounDto mapToDto(Copoun copoun ) {
 //

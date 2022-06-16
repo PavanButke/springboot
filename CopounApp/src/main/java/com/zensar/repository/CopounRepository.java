@@ -11,5 +11,6 @@ public interface CopounRepository extends JpaRepository<Copoun, Integer> {
 
 
 	List<Copoun> findByCopounCode(String copounCode);
+	List<Copoun> findByCopounCodeAndExpDate(String copounCode , String expDate);
 
 }

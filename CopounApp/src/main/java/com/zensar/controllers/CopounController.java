@@ -70,4 +70,9 @@ public class CopounController {
 	public List<Copoun> getByCopounCode(@PathVariable("copounCode") String copounCode) {
 		return copounService.getByCopounCode(copounCode);
 	}
+	
+	@GetMapping("/copouns/{copounCode}/{expDate}")
+	public List<Copoun> findByCopounCodeAndExpDate(@PathVariable("copounCode") String copounCode ,@PathVariable("expDate") String expDate) {
+		return copounService.findByCopounCodeAndExpDate(copounCode, expDate);
+	}
 }
