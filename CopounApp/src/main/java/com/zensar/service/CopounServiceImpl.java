@@ -11,16 +11,12 @@ import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.repository.CopounRepository;
 
-
-
-
 @Service
 public class CopounServiceImpl implements CopounService {
-	
+
 	@Autowired
 	private CopounRepository copounRepository;
-	
-	
+
 	@Autowired
 	private ModelMapper modelMapper;
 
@@ -31,55 +27,54 @@ public class CopounServiceImpl implements CopounService {
 //		CopounDto dto = mapToDto(copoun);
 //		return dto;
 //	codebypavan
-		
+
 		return modelMapper.map(copoun, CopounDto.class);
-		
+
 	}
 
 	@Override
 	public List<CopounDto> getAllCopouns() {
 		// TODO Auto-generated method stub
-		
+
 		List<Copoun> copounList = copounRepository.findAll();
-		
+
 		List<CopounDto> copounListDto = new ArrayList<CopounDto>();
-		for(Copoun copoun : copounList) {
-				copounListDto.add(modelMapper.map(copoun, CopounDto.class));	
+		for (Copoun copoun : copounList) {
+			copounListDto.add(modelMapper.map(copoun, CopounDto.class));
 		}
-		
+
 		return copounListDto;
-		
-		
-		
+
 	}
 
 	@Override
 	public CopounDto insertCopoun(CopounDto copounDto) {
 		// TODO Auto-generated method stub
-		
+
 //		Copoun copoun= mapToEntity(copounDto);
-		
+
 		Copoun copoun = modelMapper.map(copounDto, Copoun.class);
-		
+
 //		Copoun copoun = new Copoun();
 //		copoun.setCopounId(copounDto.getCopounId());
 //		copoun.setCopounCode(copounDto.getCopounCode());
 //		copoun.setExpDate(copounDto.getExpDate());
 //		codebypavan130797
-		
+
 		Copoun generatedCopoun = copounRepository.save(copoun);
-		
+
 //		CopounDto dto = new CopounDto();
 //		dto.setCopounId(generatedCopoun.getCopounId());
 //		dto.setCopounCode(generatedCopoun.getCopounCode());
 //		dto.setExpDate(generatedCopoun.getExpDate());
 //		
 //		 CopounDto dto= mapToDto(generatedCopoun);
-		
-		 return  modelMapper.map(generatedCopoun, CopounDto.class);
-		
+
+		return modelMapper.map(generatedCopoun, CopounDto.class);
+
 	}
-/*changesbypavan*/
+
+	/* changesbypavan */
 	@Override
 	public CopounDto updateCopoun(int copounId, CopounDto copounDto) {
 		// changesbypavan TODO Auto-generated method stub
@@ -88,8 +83,8 @@ public class CopounServiceImpl implements CopounService {
 //		copoun.setCopounCode(copounDto.getCopounCode());
 //		copoun.setExpDate(copounDto.getExpDate());
 //		
-		Copoun copoun=  modelMapper.map(copounDto, Copoun.class);
-		
+		Copoun copoun = modelMapper.map(copounDto, Copoun.class);
+
 		copounRepository.save(copoun);
 		return copounDto;
 	}
@@ -110,11 +105,10 @@ public class CopounServiceImpl implements CopounService {
 	@Override
 	public List<Copoun> findByCopounCodeAndExpDate(String copounCode, String expDate) {
 		// TODO Auto-generated method stub
-		return copounRepository.check2(copounCode ,expDate);
-	
+		return copounRepository.check2(copounCode, expDate);
+
 	}
 
-	
 //	public CopounDto mapToDto(Copoun copoun ) {
 //
 //		CopounDto dto = new CopounDto();

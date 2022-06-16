@@ -6,9 +6,9 @@ import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 
 @Entity
-@NamedNativeQueries(value = {
-		@NamedNativeQuery(name = "Copoun.check", query = "SELECT * FROM Copoun WHERE copoun_code=?1", resultClass = Copoun.class),
-		@NamedNativeQuery(name = "Copoun.check2", query = "SELECT * FROM Copoun WHERE copoun_code =?1 and exp_date=?2", resultClass = Copoun.class) })
+//@NamedNativeQueries(value = {
+//		@NamedNativeQuery(name = "Copoun.check", query = "SELECT * FROM Copoun WHERE copoun_code=?1", resultClass = Copoun.class),
+//		@NamedNativeQuery(name = "Copoun.check2", query = "SELECT * FROM Copoun WHERE copoun_code =?1 and exp_date=?2", resultClass = Copoun.class) })
 public class Copoun {
 	@Id
 	private int copounId;
