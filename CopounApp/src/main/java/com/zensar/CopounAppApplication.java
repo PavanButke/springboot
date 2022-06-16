@@ -8,16 +8,15 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class CopounAppApplication {
 
-	
 	public static void main(String[] args) {
 		SpringApplication.run(CopounAppApplication.class, args);
 	}
-	
-@Bean
-	
+
+	@Bean
+
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
-		
+
 	}
 
 }

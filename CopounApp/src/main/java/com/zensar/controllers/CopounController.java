@@ -3,8 +3,6 @@ package com.zensar.controllers;
 import java.util.*;
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,41 +20,40 @@ import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.service.CopounService;
 
-
-
-
 @RestController
-@RequestMapping(value="/copoun-api", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE} , consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+@RequestMapping(value = "/copoun-api", produces = { MediaType.APPLICATION_JSON_VALUE,
+		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
+				MediaType.APPLICATION_XML_VALUE })
 public class CopounController {
-	
+
 	@Autowired
 	private CopounService copounService;
-	
-	@GetMapping(value = "/copouns/{copounId}" )
+
+	@GetMapping(value = "/copouns/{copounId}")
 	public ResponseEntity<CopounDto> getCopoun(@PathVariable("copounId") int copounId) {
 //		return copounService.getCopoun(copounId);
-		
+
 		return new ResponseEntity<CopounDto>(copounService.getCopoun(copounId), HttpStatus.OK);
 	}
 
-	@GetMapping(value = { "/copouns", "/listOfCopouns"} )
-	public ResponseEntity< List<CopounDto>> getAllCopouns() {
-		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(),HttpStatus.OK);
+	@GetMapping(value = { "/copouns", "/listOfCopouns" })
+	public ResponseEntity<List<CopounDto>> getAllCopouns() {
+		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(), HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/copouns"  )
+	@PostMapping(value = "/copouns")
 	public ResponseEntity<CopounDto> insertCopoun(@RequestBody CopounDto copounDto) {
-			
-	
-		return new ResponseEntity<CopounDto>( copounService.insertCopoun(copounDto), HttpStatus.CREATED);
-			
+
+		return new ResponseEntity<CopounDto>(copounService.insertCopoun(copounDto), HttpStatus.CREATED);
+
 	}
 
-	@PutMapping(value = "/copouns/{copounId}" )
-	public ResponseEntity<CopounDto> updateCopoun(@PathVariable("copounId") int copounId, @RequestBody CopounDto copounDto) {
-		
+	@PutMapping(value = "/copouns/{copounId}")
+	public ResponseEntity<CopounDto> updateCopoun(@PathVariable("copounId") int copounId,
+			@RequestBody CopounDto copounDto) {
+
 //		return copounService.updateCopoun(copounId, copounDto);
-		return new ResponseEntity<CopounDto>(copounService.updateCopoun(copounId, copounDto) , HttpStatus.CREATED);
+		return new ResponseEntity<CopounDto>(copounService.updateCopoun(copounId, copounDto), HttpStatus.CREATED);
 	}
 
 	@DeleteMapping(value = "/copouns/{copounId}")
@@ -64,15 +61,15 @@ public class CopounController {
 		copounService.deleteCopoun(copounId);
 		return new ResponseEntity<String>("You Losted the copoun!", HttpStatus.OK);
 	}
-	
-	
+
 	@GetMapping("/copouns/offer/{copounCode}")
 	public List<Copoun> getByCopounCode(@PathVariable("copounCode") String copounCode) {
 		return copounService.getByCopounCode(copounCode);
 	}
-	
+
 	@GetMapping("/copouns/{copounCode}/{expDate}")
-	public List<Copoun> findByCopounCodeAndExpDate(@PathVariable("copounCode") String copounCode ,@PathVariable("expDate") String expDate) {
+	public List<Copoun> findByCopounCodeAndExpDate(@PathVariable("copounCode") String copounCode,
+			@PathVariable("expDate") String expDate) {
 		return copounService.findByCopounCodeAndExpDate(copounCode, expDate);
 	}
 }

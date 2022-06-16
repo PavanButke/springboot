@@ -7,10 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.zensar.entity.Copoun;
 
 public interface CopounRepository extends JpaRepository<Copoun, Integer> {
-	
 
+	List<Copoun> check(String copounCode);
 
-	List<Copoun> findByCopounCode(String copounCode);
-	List<Copoun> findByCopounCodeAndExpDate(String copounCode , String expDate);
+	List<Copoun> check2(String copounCode, String expDate);
 
 }

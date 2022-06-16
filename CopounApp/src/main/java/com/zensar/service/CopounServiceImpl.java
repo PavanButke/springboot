@@ -104,13 +104,13 @@ public class CopounServiceImpl implements CopounService {
 	@Override
 	public List<Copoun> getByCopounCode(String copounCode) {
 		// TODO Auto-generated method stub
-		return copounRepository.findByCopounCode(copounCode);
+		return copounRepository.check(copounCode);
 	}
 
 	@Override
 	public List<Copoun> findByCopounCodeAndExpDate(String copounCode, String expDate) {
 		// TODO Auto-generated method stub
-		return copounRepository.findByCopounCodeAndExpDate(copounCode ,expDate);
+		return copounRepository.check2(copounCode ,expDate);
 	
 	}
 

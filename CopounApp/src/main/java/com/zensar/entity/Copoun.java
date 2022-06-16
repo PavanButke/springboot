@@ -2,17 +2,23 @@ package com.zensar.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 
 @Entity
+@NamedNativeQueries(value = {
+		@NamedNativeQuery(name = "Copoun.check", query = "SELECT * FROM Copoun WHERE copoun_code=?1", resultClass = Copoun.class),
+		@NamedNativeQuery(name = "Copoun.check2", query = "SELECT * FROM Copoun WHERE copoun_code =?1 and exp_date=?2", resultClass = Copoun.class) })
 public class Copoun {
 	@Id
 	private int copounId;
 	private String copounCode;
 	private String expDate;
+
 	public Copoun() {
 		super();
 	}
-	
+
 	public Copoun(int copounId, String copounCode, String expDate) {
 		super();
 		this.copounId = copounId;
@@ -48,9 +54,5 @@ public class Copoun {
 	public String toString() {
 		return "Copoun [copounId=" + copounId + ", copounCode=" + copounCode + ", expDate=" + expDate + "]";
 	}
-	
-	
-
-	
 
 }
