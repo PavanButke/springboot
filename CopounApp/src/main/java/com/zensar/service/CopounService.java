@@ -11,7 +11,7 @@ import com.zensar.entity.Copoun;
 public interface CopounService {
 	
 	public CopounDto getCopoun(int copounId);
-	public List<CopounDto> getAllCopouns();
+	public List<CopounDto> getAllCopouns(int pageNumber , int pageSize);
 	public CopounDto insertCopoun(CopounDto copoun);
 	public CopounDto updateCopoun(int copounId, CopounDto copounDto);
 	public void deleteCopoun(int copounId);

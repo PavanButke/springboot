@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zensar.dto.CopounDto;
@@ -37,8 +38,8 @@ public class CopounController {
 	}
 
 	@GetMapping(value = { "/copouns", "/listOfCopouns" })
-	public ResponseEntity<List<CopounDto>> getAllCopouns() {
-		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(), HttpStatus.OK);
+	public ResponseEntity<List<CopounDto>> getAllCopouns(@RequestParam(value = "pageNumber", required = false ,defaultValue = "0")int pageNumber , @RequestParam(value = "pageSize" , required = false , defaultValue="3") int pageSize) {
+		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(pageNumber,pageSize), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/copouns")

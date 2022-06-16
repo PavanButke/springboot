@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.zensar.dto.CopounDto;
@@ -34,20 +36,26 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public List<CopounDto> getAllCopouns() {
-		// TODO Auto-generated method stub
+	public List<CopounDto> getAllCopouns(int pageNumber,int pageSize) {
+		// TODO Auto-generated method stubcodebypavan
 
-		List<Copoun> copounList = copounRepository.findAll();
+		
+		
+		List<CopounDto> listOfCopounDto= new ArrayList<CopounDto>();
 
-		List<CopounDto> copounListDto = new ArrayList<CopounDto>();
-		for (Copoun copoun : copounList) {
-			copounListDto.add(modelMapper.map(copoun, CopounDto.class));
+		
+		Page<Copoun> listOfCopoun= copounRepository.findAll(PageRequest.of(pageNumber,	pageSize));
+
+		List<Copoun> content= listOfCopoun.getContent();
+
+
+		for(Copoun copoun: content) {
+			listOfCopounDto.add(modelMapper.map(copoun, CopounDto.class));	
 		}
 
-		return copounListDto;
-
+		return listOfCopounDto;
+		
 	}
-
 	@Override
 	public CopounDto insertCopoun(CopounDto copounDto) {
 		// TODO Auto-generated method stub
