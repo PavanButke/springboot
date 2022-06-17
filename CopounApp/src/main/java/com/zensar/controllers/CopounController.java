@@ -21,6 +21,7 @@ import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.service.CopounService;
 
+
 @RestController
 @RequestMapping(value = "/copoun-api", produces = { MediaType.APPLICATION_JSON_VALUE,
 		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
@@ -38,9 +39,11 @@ public class CopounController {
 	}
 
 	@GetMapping(value = { "/copouns", "/listOfCopouns" })
-	public ResponseEntity<List<CopounDto>> getAllCopouns(@RequestParam(value = "pageNumber", required = false ,defaultValue = "0")int pageNumber , @RequestParam(value = "pageSize" , required = false , defaultValue="3") int pageSize) {
-		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(pageNumber,pageSize), HttpStatus.OK);
+	public ResponseEntity<List<CopounDto>> getAllCopouns(@RequestParam(value = "pageNumber", required = false ,defaultValue = "0")int pageNumber , @RequestParam(value = "pageSize" , required = false , defaultValue="3") int pageSize , @RequestParam(value = "order" , required = false , defaultValue = "true" ) boolean order, @RequestParam(value = "sort" , required = false , defaultValue = "copounCode" ) String... properties) {
+		return new ResponseEntity<List<CopounDto>>(copounService.getAllCopouns(pageNumber,pageSize, order ,properties), HttpStatus.OK);
 	}
+	
+
 
 	@PostMapping(value = "/copouns")
 	public ResponseEntity<CopounDto> insertCopoun(@RequestBody CopounDto copounDto) {

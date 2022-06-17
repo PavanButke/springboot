@@ -7,11 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.zensar.dto.CopounDto;
 import com.zensar.entity.Copoun;
 import com.zensar.repository.CopounRepository;
+
 
 
 @Service
@@ -36,7 +38,7 @@ public class CopounServiceImpl implements CopounService {
 	}
 
 	@Override
-	public List<CopounDto> getAllCopouns(int pageNumber,int pageSize) {
+	public List<CopounDto> getAllCopouns(int pageNumber,int pageSize ,boolean order , String... properties) {
 		// TODO Auto-generated method stubcodebypavan
 
 		
@@ -44,8 +46,10 @@ public class CopounServiceImpl implements CopounService {
 		List<CopounDto> listOfCopounDto= new ArrayList<CopounDto>();
 
 		
-		Page<Copoun> listOfCopoun= copounRepository.findAll(PageRequest.of(pageNumber,	pageSize));
+		Page<Copoun> listOfCopoun= copounRepository.findAll(PageRequest.of(pageNumber,	pageSize , order ? Direction.ASC : Direction.DESC, properties));
+		
 
+		
 		List<Copoun> content= listOfCopoun.getContent();
 
 
