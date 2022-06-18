@@ -4,7 +4,7 @@ An Springboot Application For Product Service .
 
 ## Steps Involved
 * Creating an Entity
-
+* Created an Endpoints with the help @RequestMapping within Controller Class.
 
 
 ### Dependencies
