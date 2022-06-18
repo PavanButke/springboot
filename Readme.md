@@ -5,15 +5,15 @@ An Springboot Application For Product Service .
 ## Steps Involved
 * Creating an Entity
 * Created an Endpoints with the help @RequestMapping within Controller Class.
-*C
+* Code an Static List
+* Code methods for Getting all Product Records
+* Test all the EndPoints on PostMan
 
 ### Dependencies
 
 * Spring Web Services 
 * Spring Dev Tools
-* Code an Static List
-* Code methods for Getting all Product Records
-* Test all the EndPoints on PostMan
+
 
 ### Installing
 
