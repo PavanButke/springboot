@@ -21,6 +21,8 @@ An Springboot Application For Product Service .
 * An Repository Layer added as ProductRepository which extends an JpaInterface which is again an Interface[Read More About Jpa](https://spring.io/projects/spring-data-jpa)
 * H2 Database Connected to Project [Read More About H2DB](https://www.h2database.com/html/main.html)
 * Tested Crud Ops on Postman and Browser
+* Connected to MySQL db as H2DB is an Viotile DB as it is local memory based DB
+* Tested CRUD OPs on Postman
 
 ### Dependencies
 
@@ -29,6 +31,8 @@ An Springboot Application For Product Service .
 * jackson formatter
 * Jpa Maven Dependency Added
 * H2Database Maven Dependency Added
+* MySql Connector Maven Dependency Added
+* Application.yml transition
 
 
 ### Installing
