@@ -23,6 +23,9 @@ An Springboot Application For Product Service .
 * Tested Crud Ops on Postman and Browser
 * Connected to MySQL db as H2DB is an Viotile DB as it is local memory based DB
 * Tested CRUD OPs on Postman
+* DTO Layer Added as ProductDto class in com.assignment.dto package
+* DTO secure the application while taking inputs and o/ps as well.. [Read More About DTO Layer](https://www.javaguides.net/2021/02/spring-boot-dto-example-entity-to-dto.html)
+
 
 ### Dependencies
 

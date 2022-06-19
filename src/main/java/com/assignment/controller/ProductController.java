@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.assignment.dto.ProductDto;
 import com.assignment.entity.Product;
 import com.assignment.service.ProductService;
 
 @RestController
-@RequestMapping("/product-api")
+@RequestMapping(value="/product-api",  produces = { MediaType.APPLICATION_JSON_VALUE,
+		MediaType.APPLICATION_XML_VALUE } , consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 public class ProductController {
 
 	// Let's add a new Layer --> Service Layer
@@ -37,33 +39,30 @@ public class ProductController {
 
 	// Writing Shorthands for @RequestMapping
 
-	@GetMapping(value = "/products/{productId}", produces = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = "/products/{productId}")
 	public Product getProduct(@PathVariable("productId") int productId) {
 		return productService.getProduct(productId);
 
 	}
 
-	@GetMapping(value = { "/products", "listOfProducts" }, produces = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = { "/products", "listOfProducts" })
 	public List<Product> getAllProducts() {
 
 		return productService.getAllProducts();
 
 	}
+	
+	@PostMapping(value = "products" )
+	public void insertProduct(@RequestBody ProductDto productDto) {
 
-	@PostMapping(value = "products", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	public void insertProduct(@RequestBody Product product) {
-
-		productService.insertProduct(product);
+		productService.insertProduct(productDto);
 
 	}
 
-	@PutMapping(value = "products/{productId}", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE })
-	public void updateProduct(@PathVariable("productId") int productId, @RequestBody Product product) {
+	@PutMapping(value = "products/{productId}")
+	public void updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
 
-		productService.updateProduct(productId, product);
+		productService.updateProduct(productId, productDto);
 	}
 
 	@DeleteMapping("products/{productId}")

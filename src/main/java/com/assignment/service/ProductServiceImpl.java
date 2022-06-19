@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.assignment.dto.ProductDto;
 import com.assignment.entity.Product;
 import com.assignment.repository.ProductRepository;
 
@@ -28,16 +29,26 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void insertProduct(Product product) {
-
-		productRepository.save(product);
+	public Product insertProduct(ProductDto productDto) {
+		
+		Product product = new Product();
+		product.setProductId(productDto.getProductId());
+		product.setProductName(productDto.getProductName());
+		product.setExpDate(productDto.getExpDate());
+		
+		return productRepository.save(product);
+		
 	}
 
 	@Override
-	public void updateProduct(int productId, Product product) {
-
-		productRepository.save(product);
-
+	public Product updateProduct(int productId, ProductDto productDto) {
+		
+		Product product = new Product();
+		product.setProductId(productDto.getProductId());
+		product.setProductName(productDto.getProductName());
+		product.setExpDate(productDto.getExpDate());
+		return productRepository.save(product);
+	
 	}
 
 	@Override
@@ -46,4 +57,8 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.deleteById(productId);
 
 	}
+
+
+
+	
 }

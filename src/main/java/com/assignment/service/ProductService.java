@@ -2,6 +2,7 @@ package com.assignment.service;
 
 import java.util.List;
 
+import com.assignment.dto.ProductDto;
 import com.assignment.entity.Product;
 
 public interface ProductService {
@@ -10,10 +11,12 @@ public interface ProductService {
 
 	public List<Product> getAllProducts();
 
-	public void insertProduct(Product product);
+	public Product insertProduct(ProductDto productDto);
 
-	public void updateProduct(int productId, Product product);
+	public Product updateProduct(int productId, ProductDto productDto);
 
 	public void deleteProduct(int productId);
+
+	
 
 }
