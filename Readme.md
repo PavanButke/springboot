@@ -18,13 +18,17 @@ An Springboot Application For Product Service .
 * Coded ProductServiceImpl class which implements ProductService Interface
 * Shifted Methods and List from Controller Layer to ProductService Layer and Autowired Product Service Interface
 * Make Sure to use @Service annotation with Implementer Class
-
+* An Repository Layer added as ProductRepository which extends an JpaInterface which is again an Interface[Read More About Jpa](https://spring.io/projects/spring-data-jpa)
+* H2 Database Connected to Project [Read More About H2DB](https://www.h2database.com/html/main.html)
+* Tested Crud Ops on Postman and Browser
 
 ### Dependencies
 
 * Spring Web Services 
 * Spring Dev Tools
 * jackson formatter
+* Jpa Maven Dependency Added
+* H2Database Maven Dependency Added
 
 
 ### Installing

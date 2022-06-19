@@ -14,7 +14,7 @@ public class ProductCommandLineRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Hi I'm inside CommandLineRunner "+Arrays.toString(args));
+		System.out.println("Hi I'm inside CommandLineRunner " + Arrays.toString(args));
 	}
-	
+
 }

@@ -10,19 +10,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order(3)
-public class ProductCommandLineRunner2 implements CommandLineRunner{
+public class ProductCommandLineRunner2 implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
-		System.out.println("I'm Inside ProductCommandLineRunner 2nd"+Arrays.toString(args)) ;
-		
+
+		System.out.println("I'm Inside ProductCommandLineRunner 2nd" + Arrays.toString(args));
+
 	}
 
-	
-	
-
-	
-	
 }

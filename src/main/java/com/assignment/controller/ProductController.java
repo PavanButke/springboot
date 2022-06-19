@@ -19,44 +19,43 @@ import com.assignment.entity.Product;
 import com.assignment.service.ProductService;
 
 @RestController
+@RequestMapping("/product-api")
 public class ProductController {
 
 	// Let's add a new Layer --> Service Layer
 	// Shift the list of Products into Service Layer
-	//how to connect service layer to this ProductController?
-	//Here is answer
-	
+	// how to connect service layer to this ProductController?
+	// Here is answer
+
 //	private ProductService productService; 
-	
+
 	// now Autowire it
-	//private ProductService productService; 
-	
+	// private ProductService productService;
+
 	@Autowired
-	private ProductService productService; 
-	
+	private ProductService productService;
+
 	// Writing Shorthands for @RequestMapping
 
 	@GetMapping(value = "/products/{productId}", produces = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
 	public Product getProduct(@PathVariable("productId") int productId) {
 		return productService.getProduct(productId);
-	
 
-		
-		
 	}
 
-	@GetMapping(value = { "/products", "listOfProducts" }, produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-		public List<Product> getAllProducts() {
-		
-		return  productService.getAllProducts();
-				
+	@GetMapping(value = { "/products", "listOfProducts" }, produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE })
+	public List<Product> getAllProducts() {
+
+		return productService.getAllProducts();
+
 	}
 
 	@PostMapping(value = "products", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public void insertProduct(@RequestBody Product product) {
-		
-			productService.insertProduct(product);
+
+		productService.insertProduct(product);
 
 	}
 
@@ -64,14 +63,14 @@ public class ProductController {
 			MediaType.APPLICATION_XML_VALUE })
 	public void updateProduct(@PathVariable("productId") int productId, @RequestBody Product product) {
 
-		productService.updateProduct(productId, product );
+		productService.updateProduct(productId, product);
 	}
 
 	@DeleteMapping("products/{productId}")
 	public void deleteProduct(@PathVariable("productId") int productId) {
 
 		productService.deleteProduct(productId);
-	
+
 	}
 
 }

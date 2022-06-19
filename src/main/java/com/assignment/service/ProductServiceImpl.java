@@ -3,77 +3,47 @@ package com.assignment.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.assignment.entity.Product;
+import com.assignment.repository.ProductRepository;
 
 @Service
-public class ProductServiceImpl  implements ProductService {
-	
-	List<Product> products = new ArrayList<Product>();
+public class ProductServiceImpl implements ProductService {
 
-	public ProductServiceImpl() {
-
-		products.add(new Product(89, "Peanut Butter", "18May2023"));
-		products.add(new Product(91, "Bread", "18May2022"));
-		products.add(new Product(89, "Jam", "18March2022"));
-	}
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public Product getProduct(int productId) {
-		
-		for (Product product : products) {
-			if (product.getProductId() == productId) {
-				return product;
-			}
+		return productRepository.findById(productId).get();
 
-		}
-
-		
-		return null;
 	}
 
-	
 	@Override
 	public List<Product> getAllProducts() {
-		return products;
-	
+		return productRepository.findAll();
+
 	}
-	
 
 	@Override
 	public void insertProduct(Product product) {
-		products.add(product);
+
+		productRepository.save(product);
 	}
-	
-	
-	
 
 	@Override
 	public void updateProduct(int productId, Product product) {
-		
-			Product newProduct = getProduct(productId);
-			newProduct.setProductId(product.getProductId());
-			newProduct.setProductName(product.getProductName());
-			newProduct.setExpDate(product.getExpDate());
-			
-			products.add(newProduct);
+
+		productRepository.save(product);
 
 	}
-
 
 	@Override
 	public void deleteProduct(int productId) {
-		for (int i = 0; i < products.size(); i++) {
-			Product product = products.get(i);
-			if (product.getProductId() == productId) {
-				products.remove(product);
-			}
 
-	}
+		productRepository.deleteById(productId);
 
 	}
 }
-
-	
-
