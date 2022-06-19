@@ -8,11 +8,14 @@ An Springboot Application For Product Service .
 * Code an Static List
 * Code methods for Getting all Product Records
 * Test all the EndPoints on PostMan
+* Add Shorthands for @RequestMapping --> For method like GET use @GetMapping , POST @PostMapping
+* Applied Content Negotiation for XML Format using -->produces , consumes , MediaType
 
 ### Dependencies
 
 * Spring Web Services 
 * Spring Dev Tools
+* jackson formatter
 
 
 ### Installing
