@@ -15,6 +15,11 @@ An Springboot Application For Product Service .
 * Coded a new TestClass within new Package Testing 
 * Scanned these non-child class with the of @ComponentScan
 * Ordered all three ProductApplicationRunner , ProductCommandLineRunner , ProductCommandLineRunner2 according your requirment.
+* Coded ProductServiceImpl class which implements ProductService Interface
+* Shifted Methods and List from Controller Layer to ProductService Layer and Autowired Product Service Interface
+* Make Sure to use @Service annotation with Implementer Class
+
+
 ### Dependencies
 
 * Spring Web Services 
