@@ -10,7 +10,11 @@ An Springboot Application For Product Service .
 * Test all the EndPoints on PostMan
 * Add Shorthands for @RequestMapping --> For method like GET use @GetMapping , POST @PostMapping
 * Applied Content Negotiation for XML Format using -->produces , consumes , MediaType
-
+* Coded three new classes Implementing ProductApplicationRunner , ProductCommandLineRunner , ProductCommandLineRunner2 within main package
+* These new classes implements the Respective Interfaces
+* Coded a new TestClass within new Package Testing 
+* Scanned these non-child class with the of @ComponentScan
+* Ordered all three ProductApplicationRunner , ProductCommandLineRunner , ProductCommandLineRunner2 according your requirment.
 ### Dependencies
 
 * Spring Web Services 
