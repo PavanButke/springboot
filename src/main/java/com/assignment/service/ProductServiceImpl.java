@@ -31,11 +31,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product insertProduct(ProductDto productDto) {
 		
-		Product product = new Product();
-		product.setProductId(productDto.getProductId());
-		product.setProductName(productDto.getProductName());
-		product.setExpDate(productDto.getExpDate());
-		
+		Product product = mapToEntity(productDto);
 		return productRepository.save(product);
 		
 	}
@@ -43,10 +39,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product updateProduct(int productId, ProductDto productDto) {
 		
-		Product product = new Product();
-		product.setProductId(productDto.getProductId());
-		product.setProductName(productDto.getProductName());
-		product.setExpDate(productDto.getExpDate());
+		Product product = mapToEntity(productDto);
+		
 		return productRepository.save(product);
 	
 	}
@@ -58,7 +52,15 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
-
-
+	
+	public Product mapToEntity(ProductDto productDto) {
+		
+		Product product = new Product();
+		product.setProductId(productDto.getProductId());
+		product.setProductName(productDto.getProductName());
+		product.setExpDate(productDto.getExpDate());
+		return product;
+	
+	}
 	
 }
