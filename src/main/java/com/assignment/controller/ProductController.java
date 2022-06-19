@@ -40,29 +40,32 @@ public class ProductController {
 	// Writing Shorthands for @RequestMapping
 
 	@GetMapping(value = "/products/{productId}")
-	public Product getProduct(@PathVariable("productId") int productId) {
+	public ProductDto getProduct(@PathVariable("productId") int productId) {
 		return productService.getProduct(productId);
 
 	}
 
 	@GetMapping(value = { "/products", "listOfProducts" })
-	public List<Product> getAllProducts() {
+	public List<ProductDto> getAllProducts() {
 
 		return productService.getAllProducts();
 
 	}
 	
 	@PostMapping(value = "products" )
-	public void insertProduct(@RequestBody ProductDto productDto) {
+	public ProductDto insertProduct(@RequestBody ProductDto productDto) {
 
-		productService.insertProduct(productDto);
+		
+		return productService.insertProduct(productDto);
+		
 
 	}
 
 	@PutMapping(value = "products/{productId}")
-	public void updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
+	public Product updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
 
-		productService.updateProduct(productId, productDto);
+		return productService.updateProduct(productId, productDto);
+		
 	}
 
 	@DeleteMapping("products/{productId}")

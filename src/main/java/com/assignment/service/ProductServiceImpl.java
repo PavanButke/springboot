@@ -17,22 +17,36 @@ public class ProductServiceImpl implements ProductService {
 	private ProductRepository productRepository;
 
 	@Override
-	public Product getProduct(int productId) {
-		return productRepository.findById(productId).get();
-
+	public ProductDto getProduct(int productId) {
+		Product product= productRepository.findById(productId).get();
+		ProductDto dto = mapToDto(product);	
+		return dto;
 	}
 
 	@Override
-	public List<Product> getAllProducts() {
-		return productRepository.findAll();
+	public List<ProductDto> getAllProducts() {
+		List<Product> productList = productRepository.findAll();
 
+		List<ProductDto> productListDto = new ArrayList<ProductDto>();
+		for(Product product: productList) {
+				productListDto.add(mapToDto(product));	
+		}
+
+		return productListDto;
 	}
 
 	@Override
-	public Product insertProduct(ProductDto productDto) {
+	public ProductDto insertProduct(ProductDto productDto) {
 		
 		Product product = mapToEntity(productDto);
-		return productRepository.save(product);
+		
+		Product newProduct = productRepository.save(product);
+	
+		ProductDto dto = mapToDto(newProduct);
+		
+		return dto;
+		 
+		
 		
 	}
 
@@ -41,7 +55,9 @@ public class ProductServiceImpl implements ProductService {
 		
 		Product product = mapToEntity(productDto);
 		
-		return productRepository.save(product);
+		productRepository.save(product);
+		
+		return product;
 	
 	}
 
@@ -52,6 +68,17 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
+	public ProductDto mapToDto(Product product) {
+		
+		ProductDto dto = new ProductDto();
+		dto.setProductId(product.getProductId());
+		dto.setProductName(product.getProductName());
+		dto.setExpDate(product.getExpDate());
+		
+		return dto;
+		
+	}
+	
 	
 	public Product mapToEntity(ProductDto productDto) {
 		
@@ -62,5 +89,4 @@ public class ProductServiceImpl implements ProductService {
 		return product;
 	
 	}
-	
 }

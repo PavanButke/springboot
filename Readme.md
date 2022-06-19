@@ -25,7 +25,9 @@ An Springboot Application For Product Service .
 * Tested CRUD OPs on Postman
 * DTO Layer Added as ProductDto class in com.assignment.dto package
 * DTO secure the application while taking inputs and o/ps as well.. [Read More About DTO Layer](https://www.javaguides.net/2021/02/spring-boot-dto-example-entity-to-dto.html)
-
+* MapToEntity Pattern Developed
+* MapToDta Pattern Developed
+* Integrated within all the Methods
 
 ### Dependencies
 

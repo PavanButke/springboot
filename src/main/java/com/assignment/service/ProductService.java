@@ -7,11 +7,11 @@ import com.assignment.entity.Product;
 
 public interface ProductService {
 
-	public Product getProduct(int productId);
+	public ProductDto getProduct(int productId);
 
-	public List<Product> getAllProducts();
+	public List<ProductDto> getAllProducts();
 
-	public Product insertProduct(ProductDto productDto);
+	public ProductDto insertProduct(ProductDto productDto);
 
 	public Product updateProduct(int productId, ProductDto productDto);
 
