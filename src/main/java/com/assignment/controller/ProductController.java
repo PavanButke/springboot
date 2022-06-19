@@ -1,8 +1,10 @@
 package com.assignment.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +30,7 @@ public class ProductController {
 	}
 	 // Writing Shorthands for @RequestMapping
 	//@RequestMapping(value="/products/{productId}",  method = RequestMethod.GET)
-	@GetMapping(value="/products/{productId}")
+	@GetMapping(value="/products/{productId}" ,produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public Product getProduct(@PathVariable("productId") int productId) {
 		
 		
@@ -43,20 +45,20 @@ public class ProductController {
 	}
 
 //	@RequestMapping(value = { "/products", "/listOfProducts" }, method = RequestMethod.GET)
-	@GetMapping(value={"/products" , "listOfProducts"})
+	@GetMapping(value={"/products" , "listOfProducts" }, produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public List<Product> getAllProducts() {
 		return products;
 	}
 
 //	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	@PostMapping(value="products")
+	@PostMapping(value="products" , consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public void insertProduct(@RequestBody Product product) {
 		products.add(product);
 
 	}
 
 //	@RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
-	@PutMapping(value = "products/{productId}")
+	@PutMapping(value = "products/{productId}", consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public void updateProduct(@PathVariable("productId") int productId, @RequestBody Product product) {
 		Product newProduct = getProduct(productId);
 		newProduct.setProductId(product.getProductId());
