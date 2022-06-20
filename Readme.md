@@ -52,6 +52,11 @@ An Springboot Application For Product Service .
 * Here we have #Pageable which is an abstract interface whos implementer is PageRequest
 * PageRequest has diffrent overload methods , we have used .of() which take page number and page size (int)
 * Tested Succesfully in Postman
+* Sorting has been done by adding parameters such as order --> which is an boolean datatype
+* We have used ternary operator on implementor getAllProducts in ProductServiceImpl 
+* We have used #Varargs over properties as String... properties
+* With the help @RequestParam --> we have set default property as productName
+
 ### Dependencies
 
 * Spring Web Services 
@@ -114,12 +119,17 @@ Endpoints:
 	http://localhost:8080/product-api/products/Bike/23Jun2022	
 	```
 	
-		Getting an specific record based on Product's First Character ; all product list based on First Letters of Product Name
+	Getting an specific record based on Product's First Character ; all product list based on First Letters of Product Name
 	 http://localhost:8080/product-api/products/list/{FirstCharsofProductName}
 	 ex.
 	 http://localhost:8080/product-api/products/list/P
 	 return list of products starting with "P"--> Playstation5
 	```
+	Getting an Records with "4" Records Per Page on PageNumber "0" order in ASCENDING Order and sort on the basis of ProductId
+	http://localhost:8080/product-api/products?pageNumber=0&pageSize=4&order=true&sort=productId
+	
+	```
+	
 ```
 
 
