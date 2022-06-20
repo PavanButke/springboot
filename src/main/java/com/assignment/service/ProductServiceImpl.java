@@ -76,13 +76,26 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductDto> getByProductName(String productName) {
 	
-		return productRepository.checking(productName);
+		List<Product> products= productRepository.checking(productName);
+		List<ProductDto> productDtos = new ArrayList<ProductDto>();
+
+		for(Product product: products) {
+		 productDtos.add(modelMapper.map(product, ProductDto.class));
+		}
+
+		return productDtos;
 	}
 
 	@Override
 	public List<ProductDto> findByProductNameAndExpDate(String productName, String expDate) {
-		
-		return productRepository.checking101(productName , expDate);
+		List<Product> products= productRepository.checking101(productName, expDate);
+		List<ProductDto> productDtos = new ArrayList<ProductDto>();
+
+		for(Product product: products) {
+		 productDtos.add(modelMapper.map(product, ProductDto.class));
+		}
+
+		return productDtos;
 	}
 	
 	
