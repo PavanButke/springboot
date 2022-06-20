@@ -76,6 +76,12 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
+	@Override
+	public List<Product> getByProductName(String productName) {
+		// TODO Auto-generated method stub
+		return productRepository.getByProductName(productName);
+	}
+
 //	public ProductDto mapToDto(Product product) {
 //		
 //		ProductDto dto = new ProductDto();

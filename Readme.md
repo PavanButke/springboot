@@ -31,6 +31,9 @@ An Springboot Application For Product Service .
 * Integrated an ModelMapper replacing mapToEntity and mapToDto
 * Integrated ResponseEntity for HTTPs status in accordance with action.
 * Updated MSGs
+* Get Product based on their names
+* Used concept of Custom Queries--> getByProductName()
+
 
 ### Dependencies
 
@@ -44,10 +47,11 @@ An Springboot Application For Product Service .
 * ModelMapper Maven Dependency
 
 
+
 ### Installing
 
 * Create Project in STS using New Project-> SpringBoot -> Select Specification -> Specify your java version
-* Any modifications needed to be made to files/folders
+
 
 
 ### Executing program
@@ -58,18 +62,18 @@ An Springboot Application For Product Service .
 Endpoints:
 	```
 	Getting all the Products from List
-	 http://localhost:8080/products/
+	 http://localhost:8080/product-api/products/
 	```
 	```
 	Getting an specific record based on Product's Id
-	 http://localhost:8080/products/{productId}
+	 http://localhost:8080/product-api/products/{productId}
 	 ex.
 	 http://localhost:8080/products/89
 	```
 	
 	```
 	Uploading new Product Record in the List
-	 http://localhost:8080/products/
+	 http://localhost:8080/product-api/products/
 	 ex.
 	 	body of Postman-->
 	 	 {
