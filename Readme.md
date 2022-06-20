@@ -61,6 +61,10 @@ An Springboot Application For Product Service .
 * How to Create a Jar File ?
 * Right Click on Project Run As Maven Build --> Click Goals--> Clean Install --> Apply Run
 * Refresh Project --> You'll get an Target folder created --> Inside it you'll find the SpringBootDemo-0.0.1-SNAPSHOT.jar
+* How To Run Jar File as a Client?
+* Go to target folder of File , open CMD from that location
+* write the following command on CMD -> java -jar Jar_File_name.jar
+* #Note :- If you are running app on 8080 , make sure you stop running project on IDE , otherwise port 8080 will show busy
 ### Dependencies
 
 * Spring Web Services 
