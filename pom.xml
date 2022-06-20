@@ -14,7 +14,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProductService</name>
 	<description>Assignment For SpringBoot Application</description>
-	<packaging>war</packaging>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -75,21 +74,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>
-						org.springframework.boot
-					</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
+			
 		</dependency>
-		
-		<dependency>
-		    <groupId>org.eclipse.jetty</groupId>
-		    <artifactId>example-jetty-embedded</artifactId>
-		 	  <scope>test</scope>
-		</dependency> 
 	</dependencies>
 
 	<build>

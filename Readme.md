@@ -2,6 +2,10 @@
 
 An Springboot Application For Product Service .
 
+## SpringBoot Architecture
+
+![Spring Boot Layers](https://1.bp.blogspot.com/-8d817gzzfEA/YNbqNJxpgOI/AAAAAAAAI2I/V3EX4_rqInkX3i0IF9CG7EhlPvXG-Qy0ACLcBGAsYHQ/w1200-h630-p-k-no-nu/Spring%2BBoot%2BProject%2BStructure.PNG)
+
 ## Steps Involved
 * Creating an Entity
 * Created an Endpoints with the help @RequestMapping within Controller Class.
@@ -166,3 +170,5 @@ Pavan Butke
 
 
 ## Acknowledgments
+
+Sharad Rajore Sir
