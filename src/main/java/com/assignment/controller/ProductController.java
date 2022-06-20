@@ -81,5 +81,11 @@ public class ProductController {
 		return new ResponseEntity<String>("Oops ! You deleted an Product", HttpStatus.OK);
 
 	}
+	
+	
+	@GetMapping("/products/list/{productName}")
+	public List<Product> getByProductName(@PathVariable("productName") String productName) {
+		return productService.getByProductName(productName);
+	}
 
 }

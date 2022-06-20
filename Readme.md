@@ -84,6 +84,12 @@ Endpoints:
    		 
    		Hit the Post on mentioned URI
 	```
+	
+	Getting an specific record based on Product's Name (not a Prime Key)
+	 http://localhost:8080/product-api/products/list/{productName}
+	 ex.
+	 http://localhost:8080/product-api/products/list/Playstation5
+	```
 ```
 
 
