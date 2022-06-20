@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "testing", "com.assignment" })
-public class ProductServiceApplication extends SpringBootServletInitializer{
+public class ProductServiceApplication {
 
 	public static void main(String... args) {
 		System.out.println("Let's Get Started");
@@ -27,11 +27,11 @@ public class ProductServiceApplication extends SpringBootServletInitializer{
 
 	}
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		// TODO Auto-generated method stub
-		return super.configure(builder);
-	}
+//	@Override
+//	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//		// TODO Auto-generated method stub
+//		return super.configure(builder);
+//	}
 	
 	
 	
