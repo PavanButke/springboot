@@ -56,7 +56,8 @@ An Springboot Application For Product Service .
 * We have used ternary operator on implementor getAllProducts in ProductServiceImpl 
 * We have used #Varargs over properties as String... properties
 * With the help @RequestParam --> we have set default property as productName
-
+* Added Actuator Dependecy started management Server on Port 8082 
+* Tested on Postman
 ### Dependencies
 
 * Spring Web Services 
@@ -67,7 +68,7 @@ An Springboot Application For Product Service .
 * MySql Connector Maven Dependency Added
 * Application.yml transition
 * ModelMapper Maven Dependency
-
+* Actuator Maven Dependency
 
 
 ### Installation
@@ -129,6 +130,11 @@ Endpoints:
 	http://localhost:8080/product-api/products?pageNumber=0&pageSize=4&order=true&sort=productId
 	
 	```
+	Actuator --> Health endpoint
+	http://localhost:8080/actuator/health
+	
+	Know all endpoints-->
+	http://localhost:8080/actuator/
 	
 ```
 
