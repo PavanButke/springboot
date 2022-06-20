@@ -58,6 +58,9 @@ An Springboot Application For Product Service .
 * With the help @RequestParam --> we have set default property as productName
 * Added Actuator Dependecy started management Server on Port 8082 
 * Tested on Postman
+* How to Create a Jar File ?
+* Right Click on Project Run As Maven Build --> Click Goals--> Clean Install --> Apply Run
+* Refresh Project --> You'll get an Target folder created --> Inside it you'll find the SpringBootDemo-0.0.1-SNAPSHOT.jar
 ### Dependencies
 
 * Spring Web Services 

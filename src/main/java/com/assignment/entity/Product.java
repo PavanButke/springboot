@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.Table;
 
 @Entity
-
+@Table()
 public class Product {
 	
 	@Id
@@ -14,6 +15,8 @@ public class Product {
 	private String productName;
 	private String expDate;
 
+	
+	
 	public Product() {
 		super();
 	}
