@@ -65,6 +65,18 @@ An Springboot Application For Product Service .
 * Go to target folder of File , open CMD from that location
 * write the following command on CMD -> java -jar Jar_File_name.jar
 * #Note :- If you are running app on 8080 , make sure you stop running project on IDE , otherwise port 8080 will show busy
+* How To Generate War File?
+* Make Sure you run Maven Clean First
+* Add <packaging>war</packing> beneath your project description tag
+* extend ProductServiceApplication to SpringBootServletInitializer and Override the cofigure method
+* Right Click on a project and Run as Maven Build
+* How to Run War file on External Server?
+* Copy the War file from target paste it in Apache Tomcat --> WebApp --> Paste
+* Go in bean folder -->Open CMD--> type "startup.bat" --> if your enviroment is yet to setup
+* C drive--> Program Files --> Java--> JDK-->bin ==> Copy path address
+* Come back to cmd type--> "set JAVA_HOME= path_of_jdk_bin"
+* again write "startup.bat"
+* Tada ! Here you go !!! 
 ### Dependencies
 
 * Spring Web Services 
