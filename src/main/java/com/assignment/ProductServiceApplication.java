@@ -18,7 +18,6 @@ public class ProductServiceApplication {
 		System.out.println("Bhetu");
 	}
 
-	
 	@Bean
 
 	public ModelMapper modelMapper() {

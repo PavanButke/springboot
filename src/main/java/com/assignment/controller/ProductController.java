@@ -23,8 +23,9 @@ import com.assignment.entity.Product;
 import com.assignment.service.ProductService;
 
 @RestController
-@RequestMapping(value="/product-api",  produces = { MediaType.APPLICATION_JSON_VALUE,
-		MediaType.APPLICATION_XML_VALUE } , consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+@RequestMapping(value = "/product-api", produces = { MediaType.APPLICATION_JSON_VALUE,
+		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
+				MediaType.APPLICATION_XML_VALUE })
 public class ProductController {
 
 	// Let's add a new Layer --> Service Layer
@@ -43,59 +44,60 @@ public class ProductController {
 	// Writing Shorthands for @RequestMapping
 
 	@GetMapping(value = "/products/{productId}")
-	public ResponseEntity<ProductDto>  getProduct(@PathVariable("productId") int productId) {
-			
-			
-			return 	new ResponseEntity<ProductDto>(productService.getProduct(productId) ,HttpStatus.OK);
-		
+	public ResponseEntity<ProductDto> getProduct(@PathVariable("productId") int productId) {
+
+		return new ResponseEntity<ProductDto>(productService.getProduct(productId), HttpStatus.OK);
 
 	}
 
 	@GetMapping(value = { "/products", "listOfProducts" })
-	public ResponseEntity< List<ProductDto>> getAllProducts(@RequestParam(value = "pageNumber", required = false ,defaultValue = "0")int pageNumber , @RequestParam(value = "pageSize" , required = false , defaultValue="3") int pageSize) {
+	public ResponseEntity<List<ProductDto>> getAllProducts(
+			@RequestParam(value = "pageNumber", required = false, defaultValue = "0") int pageNumber,
+			@RequestParam(value = "pageSize", required = false, defaultValue = "3") int pageSize,
+			@RequestParam(value = "order", required = false, defaultValue = "true") boolean order,
+			@RequestParam(value = "sort", required = false, defaultValue = "productName") String... properties) {
 
-		return  new ResponseEntity<List<ProductDto>>(productService.getAllProducts(pageNumber, pageSize),HttpStatus.OK);
-				
+		return new ResponseEntity<List<ProductDto>>(
+				productService.getAllProducts(pageNumber, pageSize, order, properties), HttpStatus.OK);
 
 	}
-	
-	@PostMapping(value = "products" )
-	public ResponseEntity<ProductDto>  insertProduct(@RequestBody ProductDto productDto) {
 
-					
+	@PostMapping(value = "products")
+	public ResponseEntity<ProductDto> insertProduct(@RequestBody ProductDto productDto) {
+
 		return new ResponseEntity<ProductDto>(productService.insertProduct(productDto), HttpStatus.CREATED);
-		
 
 	}
 
 	@PutMapping(value = "products/{productId}")
-	public ResponseEntity<String>  updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
+	public ResponseEntity<String> updateProduct(@PathVariable("productId") int productId,
+			@RequestBody ProductDto productDto) {
 
-		 productService.updateProduct(productId, productDto);
-		 return new ResponseEntity<String>("Tada ! You updated an Product ",HttpStatus.CREATED);
+		productService.updateProduct(productId, productDto);
+		return new ResponseEntity<String>("Tada ! You updated an Product ", HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("products/{productId}")
-	public   ResponseEntity<String> deleteProduct(@PathVariable("productId") int productId) {
+	public ResponseEntity<String> deleteProduct(@PathVariable("productId") int productId) {
 
 		productService.deleteProduct(productId);
 		return new ResponseEntity<String>("Oops ! You deleted an Product", HttpStatus.OK);
 
 	}
-	
-	
+
 	@GetMapping("/products/list/{productName}")
 	public ResponseEntity<List<ProductDto>> getByProductName(@PathVariable("productName") String productName) {
-		
+
 		return new ResponseEntity<List<ProductDto>>(productService.getByProductName(productName), HttpStatus.OK);
-				
+
 	}
-	
+
 	@GetMapping("/products/{productName}/{expDate}")
-	public ResponseEntity<List<ProductDto>> findByProductNameAndExpDate(@PathVariable("productName")String productName,@PathVariable("expDate") String expDate) {
-		
-			
-		return new ResponseEntity<List<ProductDto>>(productService.findByProductNameAndExpDate(productName,expDate), HttpStatus.OK);
+	public ResponseEntity<List<ProductDto>> findByProductNameAndExpDate(@PathVariable("productName") String productName,
+			@PathVariable("expDate") String expDate) {
+
+		return new ResponseEntity<List<ProductDto>>(productService.findByProductNameAndExpDate(productName, expDate),
+				HttpStatus.OK);
 	}
 
 }

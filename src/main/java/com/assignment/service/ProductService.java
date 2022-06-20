@@ -11,8 +11,6 @@ public interface ProductService {
 
 	public ProductDto getProduct(int productId);
 
-//	public List<ProductDto> getAllProducts();
-
 	public ProductDto insertProduct(ProductDto productDto);
 
 	public ProductDto updateProduct(int productId, ProductDto productDto);
@@ -23,7 +21,6 @@ public interface ProductService {
 
 	public List<ProductDto> findByProductNameAndExpDate(String productName, String expDate);
 
-	List<ProductDto> getAllProducts(int pageNumber, int pageSize);
-	
+	public List<ProductDto> getAllProducts(int pageNumber, int pageSize, boolean order, String... properties);
 
 }

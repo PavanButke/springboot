@@ -1,16 +1,15 @@
 package com.assignment.dto;
 
 public class ProductDto {
-	
+
 	private int productId;
 	private String productName;
 	private String expDate;
-	
-	
+
 	public ProductDto() {
 		super();
 	}
-	
+
 	public ProductDto(int productId, String productName, String expDate) {
 		super();
 		this.productId = productId;
@@ -46,8 +45,5 @@ public class ProductDto {
 	public String toString() {
 		return "ProductDto [productId=" + productId + ", productName=" + productName + ", expDate=" + expDate + "]";
 	}
-	
-	
-	
 
 }
