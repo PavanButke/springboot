@@ -2,8 +2,13 @@ package com.assignment.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 
 @Entity
+@NamedNativeQueries(value = {
+		@NamedNativeQuery(name = "Product.checking", query = "SELECT * FROM Product WHERE product_name=?1", resultClass = Product.class),
+		@NamedNativeQuery(name = "Product.checking101", query = "SELECT * FROM Product WHERE product_name =?1 and exp_date=?2", resultClass = Product.class) })
 public class Product {
 	
 	@Id

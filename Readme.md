@@ -36,6 +36,8 @@ An Springboot Application For Product Service .
 * We can use all the parameters to find an product in the existing list
 * We are using findByProductNameAndExpDate
 * This methods comes under JpaRepository Interface [Wanna learn more Jpa Method Implementation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
+* Used NameQuery and Cascaded NamedQueries using @NameQueries annotation
+* Coded @NamedQueries within Product class , changes reflected to ProductRepository --> ProductService --> ProductServiceImpl
 
 ### Dependencies
 

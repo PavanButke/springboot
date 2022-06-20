@@ -76,13 +76,13 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getByProductName(String productName) {
 	
-		return productRepository.getByProductName(productName);
+		return productRepository.checking(productName);
 	}
 
 	@Override
 	public List<Product> findByProductNameAndExpDate(String productName, String expDate) {
 		
-		return productRepository.findByProductNameAndExpDate(productName , expDate);
+		return productRepository.checking101(productName , expDate);
 	}
 	
 	

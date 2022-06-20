@@ -10,10 +10,9 @@ import com.assignment.entity.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 
+	List<Product> checking101(String productName, String expDate);
 
-	List<Product> getByProductName(String productName);
-
-	List<Product> findByProductNameAndExpDate(String productName, String expDate);
+	List<Product> checking(String productName);
 
 
 
