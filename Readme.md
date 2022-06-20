@@ -38,7 +38,10 @@ An Springboot Application For Product Service .
 * This methods comes under JpaRepository Interface [Wanna learn more Jpa Method Implementation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
 * Used NameQuery and Cascaded NamedQueries using @NameQueries annotation
 * Coded @NamedQueries within Product class , changes reflected to ProductRepository --> ProductService --> ProductServiceImpl
-
+* Coded an JPQL query inside the @Query withing ProductRepository Interface
+* Implemented ProductServiceImpl
+* Coded an Query to Search Product Name using First Letters of Product
+* For example , if product name is Mustang ...Then you need to enter just M and it will display all the product in the list starting with M
 ### Dependencies
 
 * Spring Web Services 
@@ -49,11 +52,10 @@ An Springboot Application For Product Service .
 * MySql Connector Maven Dependency Added
 * Application.yml transition
 * ModelMapper Maven Dependency
-* Coded an JPQL query inside the @Query withing ProductRepository Interface
-* Implemented ProductServiceImpl
 
 
-### Installing
+
+### Installation
 
 * Create Project in STS using New Project-> SpringBoot -> Select Specification -> Specify your java version
 
@@ -100,6 +102,13 @@ Endpoints:
 	 http://localhost:8080/product-api/products/{productName}/{expDate}
 	 ex.
 	http://localhost:8080/product-api/products/Bike/23Jun2022	
+	```
+	
+		Getting an specific record based on Product's First Character ; all product list based on First Letters of Product Name
+	 http://localhost:8080/product-api/products/list/{FirstCharsofProductName}
+	 ex.
+	 http://localhost:8080/product-api/products/list/P
+	 return list of products starting with "P"--> Playstation5
 	```
 ```
 
