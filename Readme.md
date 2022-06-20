@@ -42,6 +42,9 @@ An Springboot Application For Product Service .
 * Implemented ProductServiceImpl
 * Coded an Query to Search Product Name using First Letters of Product
 * For example , if product name is Mustang ...Then you need to enter just M and it will display all the product in the list starting with M
+* Replace ?1 & ?2 with respective parameters with the help @Param
+* Perform native queries
+
 ### Dependencies
 
 * Spring Web Services 

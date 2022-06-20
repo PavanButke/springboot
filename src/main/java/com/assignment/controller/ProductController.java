@@ -84,13 +84,17 @@ public class ProductController {
 	
 	
 	@GetMapping("/products/list/{productName}")
-	public List<Product> getByProductName(@PathVariable("productName") String productName) {
-		return productService.getByProductName(productName);
+	public ResponseEntity<List<ProductDto>> getByProductName(@PathVariable("productName") String productName) {
+		
+		return new ResponseEntity<List<ProductDto>>(productService.getByProductName(productName), HttpStatus.OK);
+				
 	}
 	
 	@GetMapping("/products/{productName}/{expDate}")
-	public List<Product> findByProductNameAndExpDate(@PathVariable("productName") String productName ,@PathVariable("expDate") String expDate) {
-		return productService.findByProductNameAndExpDate(productName, expDate);
+	public ResponseEntity<List<ProductDto>> findByProductNameAndExpDate(@PathVariable("productName")String productName,@PathVariable("expDate") String expDate) {
+		
+			
+		return new ResponseEntity<List<ProductDto>>(productService.findByProductNameAndExpDate(productName,expDate), HttpStatus.OK);
 	}
 
 }

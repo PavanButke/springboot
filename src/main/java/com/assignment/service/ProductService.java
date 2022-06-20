@@ -2,6 +2,8 @@ package com.assignment.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.assignment.dto.ProductDto;
 import com.assignment.entity.Product;
 
@@ -17,9 +19,9 @@ public interface ProductService {
 
 	public void deleteProduct(int productId);
 
-	public List<Product> getByProductName(String productName);
+	public List<ProductDto> getByProductName(String productName);
 
-	public List<Product> findByProductNameAndExpDate(String productName, String expDate);
+	public List<ProductDto> findByProductNameAndExpDate(String productName, String expDate);
 	
 
 }
