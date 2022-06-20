@@ -49,7 +49,8 @@ An Springboot Application For Product Service .
 * MySql Connector Maven Dependency Added
 * Application.yml transition
 * ModelMapper Maven Dependency
-
+* Coded an JPQL query inside the @Query withing ProductRepository Interface
+* Implemented ProductServiceImpl
 
 
 ### Installing
