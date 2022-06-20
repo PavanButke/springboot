@@ -17,7 +17,9 @@ public interface ProductService {
 
 	public void deleteProduct(int productId);
 
-	List<Product> getByProductName(String productName);
+	public List<Product> getByProductName(String productName);
+
+	public List<Product> findByProductNameAndExpDate(String productName, String expDate);
 	
 
 }

@@ -33,7 +33,9 @@ An Springboot Application For Product Service .
 * Updated MSGs
 * Get Product based on their names
 * Used concept of Custom Queries--> getByProductName()
-
+* We can use all the parameters to find an product in the existing list
+* We are using findByProductNameAndExpDate
+* This methods comes under JpaRepository Interface [Wanna learn more Jpa Method Implementation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
 
 ### Dependencies
 
@@ -89,6 +91,12 @@ Endpoints:
 	 http://localhost:8080/product-api/products/list/{productName}
 	 ex.
 	 http://localhost:8080/product-api/products/list/Playstation5
+	```
+	
+	Getting an specific record based on Product's Name and ExpiryDate of Project(not a Prime Key)
+	 http://localhost:8080/product-api/products/{productName}/{expDate}
+	 ex.
+	http://localhost:8080/product-api/products/Bike/23Jun2022	
 	```
 ```
 

@@ -87,5 +87,10 @@ public class ProductController {
 	public List<Product> getByProductName(@PathVariable("productName") String productName) {
 		return productService.getByProductName(productName);
 	}
+	
+	@GetMapping("/products/{productName}/{expDate}")
+	public List<Product> findByProductNameAndExpDate(@PathVariable("productName") String productName ,@PathVariable("expDate") String expDate) {
+		return productService.findByProductNameAndExpDate(productName, expDate);
+	}
 
 }

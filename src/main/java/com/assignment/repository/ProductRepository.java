@@ -13,6 +13,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	List<Product> getByProductName(String productName);
 
+	List<Product> findByProductNameAndExpDate(String productName, String expDate);
+
 
 
 

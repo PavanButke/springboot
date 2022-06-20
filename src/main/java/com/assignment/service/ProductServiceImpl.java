@@ -23,8 +23,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProductDto getProduct(int productId) {
 		Product product= productRepository.findById(productId).get();
-//		ProductDto dto = mapToDto(product);	
-//		return dto;
+
 		
 		return modelMapper.map(product, ProductDto.class);
 	}
@@ -44,14 +43,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProductDto insertProduct(ProductDto productDto) {
 		
-		//Product product = mapToEntity(productDto);
+	
 		
 		Product product = modelMapper.map(productDto,Product.class);
 		
 		Product newProduct = productRepository.save(product);
-//	
-//		ProductDto dto = mapToDto(newProduct);
-//		
+	
 		return 	modelMapper.map(newProduct, ProductDto.class);
 		 
 		
@@ -78,29 +75,17 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getByProductName(String productName) {
-		// TODO Auto-generated method stub
+	
 		return productRepository.getByProductName(productName);
 	}
 
-//	public ProductDto mapToDto(Product product) {
-//		
-//		ProductDto dto = new ProductDto();
-//		dto.setProductId(product.getProductId());
-//		dto.setProductName(product.getProductName());
-//		dto.setExpDate(product.getExpDate());
-//		
-//		return dto;
-//		
-//	}
-//	
-//	
-//	public Product mapToEntity(ProductDto productDto) {
-//		
-//		Product product = new Product();
-//		product.setProductId(productDto.getProductId());
-//		product.setProductName(productDto.getProductName());
-//		product.setExpDate(productDto.getExpDate());
-//		return product;
-//	
-//	}
+	@Override
+	public List<Product> findByProductNameAndExpDate(String productName, String expDate) {
+		
+		return productRepository.findByProductNameAndExpDate(productName , expDate);
+	}
+	
+	
+
+
 }
