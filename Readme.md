@@ -92,7 +92,8 @@ An Springboot Application For Product Service .
 * Application.yml transition
 * ModelMapper Maven Dependency
 * Actuator Maven Dependency
-
+* <packaging>war</packaging>
+* Jetty Dependencies
 
 ### Installation
 
