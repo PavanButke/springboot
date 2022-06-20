@@ -28,6 +28,9 @@ An Springboot Application For Product Service .
 * MapToEntity Pattern Developed
 * MapToDta Pattern Developed
 * Integrated within all the Methods
+* Integrated an ModelMapper replacing mapToEntity and mapToDto
+* Integrated ResponseEntity for HTTPs status in accordance with action.
+* Updated MSGs
 
 ### Dependencies
 
@@ -38,6 +41,7 @@ An Springboot Application For Product Service .
 * H2Database Maven Dependency Added
 * MySql Connector Maven Dependency Added
 * Application.yml transition
+* ModelMapper Maven Dependency
 
 
 ### Installing

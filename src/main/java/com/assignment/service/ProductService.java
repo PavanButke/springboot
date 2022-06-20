@@ -13,7 +13,7 @@ public interface ProductService {
 
 	public ProductDto insertProduct(ProductDto productDto);
 
-	public Product updateProduct(int productId, ProductDto productDto);
+	public ProductDto updateProduct(int productId, ProductDto productDto);
 
 	public void deleteProduct(int productId);
 

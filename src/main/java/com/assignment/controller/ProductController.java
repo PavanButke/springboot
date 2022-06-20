@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,8 +42,11 @@ public class ProductController {
 	// Writing Shorthands for @RequestMapping
 
 	@GetMapping(value = "/products/{productId}")
-	public ProductDto getProduct(@PathVariable("productId") int productId) {
-		return productService.getProduct(productId);
+	public ResponseEntity<ProductDto>  getProduct(@PathVariable("productId") int productId) {
+			
+			
+			return 	new ResponseEntity<ProductDto>(productService.getProduct(productId) ,HttpStatus.OK);
+		
 
 	}
 
@@ -53,25 +58,26 @@ public class ProductController {
 	}
 	
 	@PostMapping(value = "products" )
-	public ProductDto insertProduct(@RequestBody ProductDto productDto) {
+	public ResponseEntity<ProductDto>  insertProduct(@RequestBody ProductDto productDto) {
 
-		
-		return productService.insertProduct(productDto);
+					
+		return new ResponseEntity<ProductDto>(productService.insertProduct(productDto), HttpStatus.CREATED);
 		
 
 	}
 
 	@PutMapping(value = "products/{productId}")
-	public Product updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
+	public ResponseEntity<String>  updateProduct(@PathVariable("productId") int productId, @RequestBody ProductDto productDto) {
 
-		return productService.updateProduct(productId, productDto);
-		
+		 productService.updateProduct(productId, productDto);
+		 return new ResponseEntity<String>("Tada ! You updated an Product ",HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("products/{productId}")
-	public void deleteProduct(@PathVariable("productId") int productId) {
+	public   ResponseEntity<String> deleteProduct(@PathVariable("productId") int productId) {
 
 		productService.deleteProduct(productId);
+		return new ResponseEntity<String>("Oops ! You deleted an Product", HttpStatus.OK);
 
 	}
 
