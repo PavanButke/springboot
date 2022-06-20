@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.dto.ProductDto;
@@ -51,9 +52,9 @@ public class ProductController {
 	}
 
 	@GetMapping(value = { "/products", "listOfProducts" })
-	public ResponseEntity< List<ProductDto>> getAllProducts() {
+	public ResponseEntity< List<ProductDto>> getAllProducts(@RequestParam(value = "pageNumber", required = false ,defaultValue = "0")int pageNumber , @RequestParam(value = "pageSize" , required = false , defaultValue="3") int pageSize) {
 
-		return  new ResponseEntity<List<ProductDto>>(productService.getAllProducts(),HttpStatus.OK);
+		return  new ResponseEntity<List<ProductDto>>(productService.getAllProducts(pageNumber, pageSize),HttpStatus.OK);
 				
 
 	}

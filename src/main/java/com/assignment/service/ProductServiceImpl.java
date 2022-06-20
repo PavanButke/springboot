@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.assignment.dto.ProductDto;
@@ -29,11 +31,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductDto> getAllProducts() {
-		List<Product> productList = productRepository.findAll();
+	public List<ProductDto> getAllProducts(int pageNumber , int pageSize) {
+//		List<Product> productList = productRepository.findAll();
 
 		List<ProductDto> productListDto = new ArrayList<ProductDto>();
-		for(Product product: productList) {
+		
+		Page<Product> listOfProduct = productRepository.findAll(PageRequest.of(pageNumber, pageSize));
+		List<Product> content = listOfProduct.getContent();
+		for(Product product: content) {
 				productListDto.add(modelMapper.map(product, ProductDto.class));	
 		}
 

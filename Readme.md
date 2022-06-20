@@ -44,7 +44,14 @@ An Springboot Application For Product Service .
 * For example , if product name is Mustang ...Then you need to enter just M and it will display all the product in the list starting with M
 * Replace ?1 & ?2 with respective parameters with the help @Param
 * Perform native queries
-
+* PagingAndSorting Concept Implemented
+* we can now filter product data according to page number which are indexes and page size as well
+* We have implemented this concept over getAllProducts method in ProductServiceImpl which is implementing JpaRepository Interfaces methods
+* We know that Jpa is an Interface , it is have SuperInterfaces as following: CrudRepository<T,ID>, PagingAndSortingRepository<T,ID>, QueryByExampleExecutor<T>, Repository<T,ID>
+* Out of which we are using  PagingAndSortingRepository<T,ID> 
+* Here we have #Pageable which is an abstract interface whos implementer is PageRequest
+* PageRequest has diffrent overload methods , we have used .of() which take page number and page size (int)
+* Tested Succesfully in Postman
 ### Dependencies
 
 * Spring Web Services 
