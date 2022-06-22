@@ -11,7 +11,7 @@ management:
          "*"
         exclude:
         - beans
-
+      base-path: /javaactuator
 
   endpoint:
       shutdown:
@@ -23,15 +23,20 @@ management:
 
     env:
       enabled: true
+ 
       
 info:  
  createdBy: Pavan
  modified: 22Jun22 
-logging:
-  level:
-    com:
-      zensar: trace
  
+  
+#logging:
+#  level:
+#    com:
+#      zensar: trace
+
+
+         
  
  
 spring:

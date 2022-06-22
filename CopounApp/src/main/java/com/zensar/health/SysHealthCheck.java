@@ -1,18 +1,30 @@
 package com.zensar.health;
 
+import java.util.Random;
+
+import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.stereotype.Component;
 
-public class SysHealthCheck implements HealthIndicator {
-	
-	@Override
-	public Health health() {
-		int checkCode = 0;
+@Component
+public class SysHealthCheck extends AbstractHealthIndicator {
 
-		if (checkCode != 0) {
-			return Health.down().withDetail("Your System is Down", checkCode).build();
-		}
-		return Health.up().build();
-	}
 
+	    @Override
+	    protected void doHealthCheck(Health.Builder builder) {
+	        int number = getRandomNumber();
+
+	        if (number != 0) {
+	            builder.up().build();
+	        } else {
+	            builder.down().withDetail("Oops ! Error Occured", "This is a Zero").build();
+	        }
+	    }
+
+	    private int getRandomNumber() {
+	        return new Random().ints(0,2).findFirst().orElseThrow(() -> new RuntimeException("Failed to generate random number"));
+	    }
 }
+
+

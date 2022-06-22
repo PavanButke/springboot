@@ -15,6 +15,7 @@ Date 22/06/22
 * checked http://localhost:8080/actuator/scheduledtasks 
 *  New Class SysHealthCheck created to override an health endpoint
 * Initially health endpoint shows status -"UP" as everything in project is going well
-* we wrote SysHealthCheck where it implements HealthIndicator
-* In this class we have a method public Health health()
-* Here we wrote a logic if checkCode is any Non-Zero Number then system gets down 
+* we wrote SysHealthCheck where it implements AbstractHealthIndicator
+* Here we wrote a logic if number is  Zero Number then system gets down 
+* We are generating random numbers from 0-2
+* implemented base-path and changed actuator path to http://localhost:8080/javaactuator/
