@@ -12,6 +12,11 @@ management:
         exclude:
         - beans
 
+
+  endpoint:
+      shutdown:
+        enabled: true
+        
 spring:
  datasource:
   url: jdbc:mysql://localhost:3306/zensar
