@@ -17,6 +17,23 @@ management:
       shutdown:
         enabled: true
         
+  info:
+    git:
+      enabled: true
+
+    env:
+      enabled: true
+      
+info:  
+ createdBy: Pavan
+ modified: 22Jun22 
+logging:
+  level:
+    com:
+      zensar: trace
+ 
+ 
+ 
 spring:
  datasource:
   url: jdbc:mysql://localhost:3306/zensar
