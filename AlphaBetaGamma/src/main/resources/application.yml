@@ -12,11 +12,30 @@ management:
       exposure:
         include: "*"
         exclude:
-         - health
-         - beans        
+        
+      base-path: /myactuator       
   endpoint:
      shutdown:
        enabled: true
+       
+  info:
+    git:
+      enabled: true
+
+    build:
+      enabled: true
+      
+    env:
+      enabled: true
+      
+info:  
+ createdBy: Pavan
+ modified: 22May22 
+
+logging:
+  level:
+    com:
+      zensar: debug
 
 #springfox:
 # documentation:

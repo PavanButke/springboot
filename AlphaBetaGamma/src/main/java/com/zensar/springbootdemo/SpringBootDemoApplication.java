@@ -12,10 +12,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class SpringBootDemoApplication{
 
 	public static void main(String... args) {
-		System.out.println("Ram");
+		System.out.println("Alpha");
 		SpringApplication.run(SpringBootDemoApplication.class, args);
 		
-		System.out.println("Laxman");
+		System.out.println("Beta");
 		
 	}
 
