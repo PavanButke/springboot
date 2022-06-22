@@ -21,3 +21,13 @@ Date 22/06/22
 * implemented base-path and changed actuator path to http://localhost:8080/javaactuator/
 * Coded new class InfoImpmntr which implements InfoContributor interface
 * We can configure http://localhost:8080/javaactuator/info w/o writing into application.yml
+* Created an  class CopounEndpoint to illustrate workings of Custom Actuator Operations such as @ReadOperation @WriteOperation @DeleteOperation 
+copoun-endpoint:
+
+[GET] http://localhost:8080/javaactuator/copoun-endpoint/     --> Returns all copouns
+[GET] http://localhost:8080/javaactuator/copoun-endpoint/{code} --> Returns copoun based on code
+[Post] http://localhost:8080/javaactuator/copoun-endpoint/{code}/{sentence1}, {sentence2}
+eg. http://localhost:8080/javaactuator/copoun-endpoint/Go100/Oohoo! , You wanna Rs.100 off on Your next Purchase
+[DELETE] http://localhost:8080/javaactuator/copoun-endpoint/{code}
+
+* All Endpoint Tested
