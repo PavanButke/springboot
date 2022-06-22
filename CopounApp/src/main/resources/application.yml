@@ -3,7 +3,14 @@
 #spring.datasource.password= root
 #spring.jpa.hibernate.ddl-auto=create
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 
+         "*"
+        exclude:
+        - beans
 
 spring:
  datasource:

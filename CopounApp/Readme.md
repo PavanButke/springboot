@@ -4,3 +4,4 @@ Date 22/06/22
 * Added Dependency of Actuator
 * http://localhost:8080/actuator/
 * http://localhost:8080/actuator/health --> Only 1 endpoint activated
+* All beans included using "*" except beans using exclude: -beans
