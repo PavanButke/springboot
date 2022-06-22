@@ -25,10 +25,10 @@ management:
       enabled: true
  
       
-info:  
- createdBy: Pavan
- modified: 22Jun22 
- 
+#info:  
+# createdBy: Pavan
+# modified: 22Jun22 
+# 
   
 #logging:
 #  level:

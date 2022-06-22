@@ -19,3 +19,5 @@ Date 22/06/22
 * Here we wrote a logic if number is  Zero Number then system gets down 
 * We are generating random numbers from 0-2
 * implemented base-path and changed actuator path to http://localhost:8080/javaactuator/
+* Coded new class InfoImpmntr which implements InfoContributor interface
+* We can configure http://localhost:8080/javaactuator/info w/o writing into application.yml
