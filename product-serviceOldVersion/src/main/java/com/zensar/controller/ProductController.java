@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.zensar.entity.Coupon;
 import com.zensar.entity.Product;
+import com.zensar.restclient.CouponRestClient;
 import com.zensar.services.ProductService;
 
 @RestController
@@ -30,8 +31,10 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	 @Autowired
-	 RestTemplate restTemplate;
+//	 @Autowired
+//	 RestTemplate restTemplate;
+	@Autowired
+	private CouponRestClient couponRestClient;
 	 
 //	 @GetMapping("/products/{productId}")
 //		public Product getProduct(@PathVariable("productId") int productId) {
@@ -42,14 +45,16 @@ public class ProductController {
 	public Product insertProduct(@RequestBody Product product) {
 		
 		
-	 	 ResponseEntity<Coupon> coupon = restTemplate.getForEntity("http://localhost:8083/coupons/"+product.getCouponCode(), Coupon.class);
+//	 	 ResponseEntity<Coupon> coupon = restTemplate.getForEntity("http://COUPON-SERVICE/coupons/"+product.getCouponCode(), Coupon.class);
+//	 	 
 	 	 
-	 	 
-	 	 Coupon copounObj = coupon.getBody();
+		Coupon coupon = couponRestClient.getCoupon(product.getCouponCode());
+		
+	 	 Double discount = coupon.getDiscount();
 	 	 
 
 	 
-	 	 product.setPrice(product.getPrice() - copounObj.getDiscount() ); 
+	 	 product.setPrice(product.getPrice() - discount ); 
 		
 	 	 return productService.insertProduct(product);
 	}
