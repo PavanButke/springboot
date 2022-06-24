@@ -1,0 +1,57 @@
+#spring.datasource.url= jdbc:mysql://localhost:3306/zensar
+#spring.datasource.username= root
+#spring.datasource.password= root
+#spring.jpa.hibernate.ddl-auto=create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 
+         "*"
+        exclude:
+        - beans
+      base-path: /javaactuator
+
+  endpoint:
+      shutdown:
+        enabled: true
+        
+  info:
+    git:
+      enabled: true
+
+    env:
+      enabled: true
+ 
+      
+#info:  
+# createdBy: Pavan
+# modified: 22Jun22 
+# 
+  
+#logging:
+#  level:
+#    com:
+#      zensar: trace
+
+
+         
+ 
+ 
+spring:
+ datasource:
+  url: jdbc:mysql://localhost:3306/zensar
+  username: root
+  password: root
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  properties:
+   hibernate:
+    format_sql: true
+  
+   
+
+   
