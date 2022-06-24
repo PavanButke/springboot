@@ -1,0 +1,16 @@
+body {
+	padding-top: 2rem;
+}
+
+.starter-template {
+	padding: 5rem 2.5rem;
+	text-align: center;
+}
+
+h1 {
+	color: green;
+}
+
+h2 {
+	color: #FF0000;
+}
