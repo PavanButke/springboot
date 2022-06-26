@@ -5,7 +5,10 @@ import java.util.List;
 
 import javax.swing.text.html.FormSubmitEvent.MethodType;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +29,9 @@ public class EmployeeController {
 			employees.add(new Employee(19,"Gamma","Training"));
 		}
 		
-		@RequestMapping(value="/employees/{empId}" , method=RequestMethod.GET)
+		
+		@GetMapping(value = "/employees/{empId}")
+//		@RequestMapping(value="/employees/{empId}" , method=RequestMethod.GET)
 		public Employee getEmployee(@PathVariable("empId") int empId) {
 			
 			for(Employee employee : employees) {
@@ -41,19 +46,21 @@ public class EmployeeController {
 			
 		}
 		
-		
-		@RequestMapping(value = {"/employees" , "listOfEmployees"} , method = RequestMethod.GET)
+		@GetMapping(value="/employees")
+		//@RequestMapping(value = {"/employees" , "listOfEmployees"} , method = RequestMethod.GET)
 		public List<Employee> getAllEmployee(){
 			return employees;
 		}
 		
 		
-		@RequestMapping(value = "/employees" , method = RequestMethod.POST)
+		@PostMapping(value="/employees")
+		//@RequestMapping(value = "/employees" , method = RequestMethod.POST)
 		public void insertEmployee(@RequestBody Employee employee) {
 			employees.add(employee);
 		}
 		
-		@RequestMapping(value="/employees/{empId}", method = RequestMethod.PUT)
+		@PostMapping(value="/employees/{empId}")
+		//@RequestMapping(value="/employees/{empId}", method = RequestMethod.PUT)
 		public void updateEmployee(@PathVariable("empId") int empId , @RequestBody Employee employee) {
 			
 			Employee newEmp = getEmployee(empId);
@@ -65,7 +72,9 @@ public class EmployeeController {
 			employees.add(newEmp);
 		}	
 		
-		@RequestMapping(value= "/employees/{empId}", method = RequestMethod.DELETE )
+		
+		@DeleteMapping(value="/employees/{empId}")
+		//@RequestMapping(value= "/employees/{empId}", method = RequestMethod.DELETE )
 		public void deleteEmployee(@PathVariable("empId") int empId) {
 			
 			for(int i=0 ; i< employees.size();i++) {
