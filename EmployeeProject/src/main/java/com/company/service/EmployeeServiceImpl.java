@@ -3,61 +3,67 @@ package com.company.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.dto.EmployeeDto;
 import com.company.entity.Employee;
+
+import com.company.repository.EmployeeRepository;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
-
-	// Creating an Static List of Employee Data
-	List<Employee> employees = new ArrayList<Employee>();
-	// constructor of List
-
-	public EmployeeServiceImpl() {
-		employees.add(new Employee(19, "Alpha", "Development"));
-		employees.add(new Employee(29, "Beta", "Development"));
-		employees.add(new Employee(19, "Sigma", "HR"));
-		employees.add(new Employee(19, "Gamma", "Training"));
-	}
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	
 	@Override
-	public Employee getEmployee(int empId) {
-		for (Employee employee : employees) {
+	public EmployeeDto getEmployee(int empId) {
+		
+		Employee employee = employeeRepository.findById(empId).get();
+		EmployeeDto dto = mapToDto(employee);
+		return dto;
+	}
 
-			if (employee.getEmpId() == empId)
 
-				return employee;
+	@Override
+	public List<EmployeeDto> getAllEmployee() {
+		
+		List<Employee> employeeList = employeeRepository.findAll();
+		
+		List<EmployeeDto> employeeDtoList = new ArrayList<EmployeeDto>();
+		for(Employee employee : employeeList) {
+				
+			employeeDtoList.add(mapToDto(employee));
 		}
-
-		return null;
+		return employeeDtoList;
 	}
 
 
 	@Override
-	public List<Employee> getAllEmployee() {
-		return employees;
+	public EmployeeDto insertEmployee(EmployeeDto employeeDto) {
+	
+
+		Employee newEmp = mapToEntity(employeeDto);
+		
+		Employee intern = employeeRepository.save(newEmp);
+		
+		EmployeeDto dto = mapToDto(intern);
+		return dto;
 		
 	}
 
 
 	@Override
-	public void insertEmployee(Employee employee) {
-		employees.add(employee);
+	public Employee updateEmployee(int empId, EmployeeDto employeeDto) {
 		
-	}
-
-
-	@Override
-	public void updateEmployee(int empId, Employee employee) {
+		Employee newEmp = mapToEntity(employeeDto);
 		
-		Employee newEmp = getEmployee(empId);
-		newEmp.setEmpDept(employee.getEmpDept());
-		newEmp.setEmpName(employee.getEmpName());
-		newEmp.setEmpId(employee.getEmpId());
+		employeeRepository.save(newEmp);
 		
-		employees.add(newEmp);
+	
+		return newEmp;
 		
 	}
 
@@ -65,16 +71,34 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public void deleteEmployee(int empId) {
 		
-		for(int i=0 ; i<employees.size() ; i++) {
-			Employee employee = employees.get(i);
-			
-			if(employee.getEmpId()== empId) {
-				employees.remove(employee);
-			}
-		}
+		employeeRepository.deleteById(empId);
+		
+	}
+	
+	
+	public EmployeeDto mapToDto(Employee employee) {
+		
+		EmployeeDto dto = new EmployeeDto();
+		
+		dto.setEmpId(employee.getEmpId());
+		dto.setEmpName(employee.getEmpName());
+		dto.setEmpDept(employee.getEmpDept());
+		return dto;
 		
 	}
 
+	
+	public Employee mapToEntity(EmployeeDto employeeDto) {
+		
+
+		Employee newEmp = new Employee();
+		newEmp.setEmpDept(employeeDto.getEmpDept());
+		newEmp.setEmpName(employeeDto.getEmpName());
+		newEmp.setEmpId(employeeDto.getEmpId());
+		
+		return newEmp;
+		
+	}
 
 	
 

@@ -3,7 +3,7 @@ package com.company.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.html.FormSubmitEvent.MethodType;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.company.dto.EmployeeDto;
 import com.company.entity.Employee;
 import com.company.service.EmployeeService;
 
@@ -35,7 +37,7 @@ public class EmployeeController {
 			MediaType.APPLICATION_XML_VALUE })
 //	produces --> Means returning back data to console or o/p	
 	// @RequestMapping(value="/employees/{empId}" , method=RequestMethod.GET)
-	public Employee getEmployee(@PathVariable("empId") int empId) {
+	public EmployeeDto getEmployee(@PathVariable("empId") int empId) {
 
 		return employeeService.getEmployee(empId);
 
@@ -45,23 +47,25 @@ public class EmployeeController {
 	// REQUESTMAPPING , WE can reduce code using that
 	@GetMapping(value="/employees", produces = { MediaType.APPLICATION_JSON_VALUE , MediaType.APPLICATION_XML_VALUE} )
 		//@RequestMapping(value = {"/employees" , "listOfEmployees"} , method = RequestMethod.GET)
-		public List<Employee> getAllEmployee(){
+		public List<EmployeeDto> getAllEmployee(){
 			return employeeService.getAllEmployee();
 		}
 
 	// consumes means taking input from user
 	@PostMapping(value = "/employees", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	// @RequestMapping(value = "/employees" , method = RequestMethod.POST)
-	public void insertEmployee(@RequestBody Employee employee) {
-		employeeService.insertEmployee(employee);
+	public EmployeeDto insertEmployee(@RequestBody EmployeeDto employeeDto) {
+		
+		return employeeService.insertEmployee(employeeDto	);
 	}
 
-	@PostMapping(value = "/employees/{empId}", consumes = { MediaType.APPLICATION_JSON_VALUE,
+	@PutMapping(value = "/employees/{empId}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
 	// @RequestMapping(value="/employees/{empId}", method = RequestMethod.PUT)
-	public void updateEmployee(@PathVariable("empId") int empId, @RequestBody Employee employee) {
+	public Employee updateEmployee(@PathVariable("empId") int empId, @RequestBody EmployeeDto employeeDto) {
 
-		employeeService.updateEmployee(empId, employee);
+		
+		return employeeService.updateEmployee(empId, employeeDto);
 	}
 
 	@DeleteMapping(value = "/employees/{empId}")

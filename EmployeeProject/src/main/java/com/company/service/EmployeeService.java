@@ -2,19 +2,21 @@ package com.company.service;
 
 import java.util.List;
 
+import com.company.dto.EmployeeDto;
 import com.company.entity.Employee;
 
 public interface EmployeeService {
 	
-	public Employee getEmployee(int empId);
+	public EmployeeDto getEmployee(int empId);
 
-	public List<Employee> getAllEmployee();
+	public List<EmployeeDto> getAllEmployee();
 
-	public void insertEmployee(Employee employee);
-
-	public void updateEmployee(int empId , Employee employee);
 
 	public void deleteEmployee(int empId);
+
+	public EmployeeDto insertEmployee(EmployeeDto employeeDto);
+
+	public Employee updateEmployee(int empId, EmployeeDto employeeDto);
 
 
 
