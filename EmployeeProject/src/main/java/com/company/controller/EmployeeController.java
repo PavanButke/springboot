@@ -6,7 +6,9 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,9 +39,9 @@ public class EmployeeController {
 			MediaType.APPLICATION_XML_VALUE })
 //	produces --> Means returning back data to console or o/p	
 	// @RequestMapping(value="/employees/{empId}" , method=RequestMethod.GET)
-	public EmployeeDto getEmployee(@PathVariable("empId") int empId) {
-
-		return employeeService.getEmployee(empId);
+	public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("empId") int empId) {
+		
+		return new ResponseEntity<EmployeeDto>(employeeService.getEmployee(empId), HttpStatus.OK);
 
 	}
 
@@ -54,25 +56,29 @@ public class EmployeeController {
 	// consumes means taking input from user
 	@PostMapping(value = "/employees", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	// @RequestMapping(value = "/employees" , method = RequestMethod.POST)
-	public EmployeeDto insertEmployee(@RequestBody EmployeeDto employeeDto) {
+	public ResponseEntity<EmployeeDto> insertEmployee(@RequestBody EmployeeDto employeeDto) {
 		
-		return employeeService.insertEmployee(employeeDto	);
+		return new ResponseEntity<EmployeeDto>(employeeService.insertEmployee(employeeDto), HttpStatus.CREATED) ;
 	}
 
 	@PutMapping(value = "/employees/{empId}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
 	// @RequestMapping(value="/employees/{empId}", method = RequestMethod.PUT)
-	public Employee updateEmployee(@PathVariable("empId") int empId, @RequestBody EmployeeDto employeeDto) {
+	public ResponseEntity<String> updateEmployee(@PathVariable("empId") int empId, @RequestBody EmployeeDto employeeDto) {
 
 		
-		return employeeService.updateEmployee(empId, employeeDto);
+		 employeeService.updateEmployee(empId, employeeDto);
+		 
+		   return new ResponseEntity<String>("Tada ! You updated an Employee Record ",HttpStatus.CREATED);
 	}
 
 	@DeleteMapping(value = "/employees/{empId}")
 	// @RequestMapping(value= "/employees/{empId}", method = RequestMethod.DELETE )
-	public void deleteEmployee(@PathVariable("empId") int empId) {
+	public ResponseEntity<String> deleteEmployee(@PathVariable("empId") int empId) {
 
 		employeeService.deleteEmployee(empId);
+		
+		return new ResponseEntity<String>("Oops ! You deleted an Employee Record", HttpStatus.OK);
 		}
 
 	}
