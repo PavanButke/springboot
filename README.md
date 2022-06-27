@@ -10,7 +10,7 @@ Kindly find the Projects and Code According to Branch
 Total 8 Branches
 ```
 
-## Usage
+## Navigate Accordingly
 
 ```
 Copoun App Project --> Where I implement all the changes taught in class on daily basis.
