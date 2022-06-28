@@ -14,7 +14,7 @@ import com.zensar.entity.Coupon;
 public interface CouponRestClient {
 	
 	@GetMapping("/coupons/{couponCode}")
-	Coupon getCoupon(@PathVariable String couponCode);
+	Coupon getCoupon(@PathVariable("couponCode") String couponCode);
 	
 	
 	
