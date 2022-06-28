@@ -1,5 +1,6 @@
 package com.zensar;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,9 @@ public class CouponServiceApplication {
 	
 	private String language;
 	
+	@Autowired
+	private MyConfig config;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(CouponServiceApplication.class, args);
 	}
@@ -23,7 +27,7 @@ public class CouponServiceApplication {
 	
 	@GetMapping("/")
 	public String testConfig() {
-		return "My favorite lang is "+language;
+		return "My language is " + language + " and test is " + config.getTest();
 		
 	}
 	
