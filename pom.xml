@@ -9,11 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zensar</groupId>
-<<<<<<< HEAD
 	<artifactId>SpringBootDemo</artifactId>
-=======
-	<artifactId>discovery-server</artifactId>
->>>>>>> branch 'ServiceDiscovery' of https://github.com/PavanButke/springboot
 	<version>0.0.1-SNAPSHOT</version>
 	<name>discovery-server</name>
 	<description>Demo project for Spring Boot</description>
