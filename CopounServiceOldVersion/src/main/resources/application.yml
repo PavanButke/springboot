@@ -10,7 +10,14 @@ spring:
   
    database-platform: org.hibernate.dialect.MySQL8Dialect
   application:
-    name: coupon-service    
+    name: coupon-service  
+    
+  config:
+     import: 
+      - optional:configserver:http://localhost:8888/ 
+ 
+    
+      
 server:
   port: 8083
 
@@ -23,4 +30,7 @@ eureka:
     
     service-url:
       defaultZone: http://localhost:8761/eureka
- 
+     
+      instance:
+        prefer-ip-address: true 
+  

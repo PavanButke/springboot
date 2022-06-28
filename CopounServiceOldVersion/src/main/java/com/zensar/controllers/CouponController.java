@@ -20,13 +20,14 @@ public class CouponController {
 
 	@PostMapping("/")
 	public Coupon createCoupon(@RequestBody Coupon coupon) {
+	
 		return couponService.createCoupon(coupon);
 	}
 
 	// http://localhost:8080/coupons/MAX50 -> GET
 	@GetMapping("/{couponCode}")
 	public Coupon getCoupon(@PathVariable("couponCode") String couponCode) {
-		System.out.println("Hello");
+		System.out.println("I'm in instance1");
 		return couponService.getCoupon(couponCode);
 	}
 	
