@@ -7,12 +7,14 @@ I update code according to branches.
 Kindly find the Projects and Code According to Branch
 
 ```bash
-Total 8 Branches
+Total 10 Branches
 ```
 
 ## Navigate Accordingly
 
 ```
+SpringJDBCProject -->  Challenge given for Student Spring JDBC Crud Project.
+
 Copoun App Project --> Where I implement all the changes taught in class on daily basis.
 
 PavanProject --> It Student Project , here I have implemented changes to be made on Student App.
@@ -24,7 +26,8 @@ ThymleafSampl --> Assignment given to Implement the logic using Thymleaf --> Spr
 restTemplate --> It was implementation of Connecting two project using webservice i.e. ProductService and CouponService.
 
 ServiceDiscovery --> It is a project where I have implemented Eureka , OpenFeign to create a microservice,
-
+ 
+28thJune --> Update Product-Coupon Project Microservice
 ```
 
 ## Contributing
