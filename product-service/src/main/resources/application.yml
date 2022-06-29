@@ -26,11 +26,13 @@ eureka:
 
 server:
   port: 9090
-  
-  
 
- 
-
+resilience4j:
+  retry:
+    instances:
+      productapi:
+       max-attempts: 3
+       wait-duration: 20s 
       
 
 
