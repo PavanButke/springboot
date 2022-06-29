@@ -1,9 +1,8 @@
-package com.challenge.jdbc;
-
+package com.challenge.jdbc.entity;
 
 
 public class Student {
-
+	
 	private int studentId;
 	private String studentName;
 	private int rollNumber;

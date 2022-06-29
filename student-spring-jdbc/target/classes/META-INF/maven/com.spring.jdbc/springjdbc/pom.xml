@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.challenge.jdbc</groupId>
-	<artifactId>student-spring-jdbc</artifactId>
+	<groupId>com.spring.jdbc</groupId>
+	<artifactId>springjdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>student-spring-jdbc</name>
+	<name>springjdbc</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -17,33 +17,36 @@
 
 	<dependencies>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>5.3.21</version>
+			<artifactId>spring-core</artifactId>
+			<version>5.2.3.RELEASE</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.21</version>
+			<version>5.2.3.RELEASE</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.2.3.RELEASE</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.38</version>
+			<version>8.0.11</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>5.3.21</version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>
