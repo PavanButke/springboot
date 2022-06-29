@@ -20,33 +20,19 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	//@Autowired
-	//private RestTemplate restTemplate;
 	
 	@Autowired
 	private CouponRestClient restClient;
-	
-	
-	
+
 	@PostMapping("/")
 	public Product insertProduct(@RequestBody Product product) {
-		
-		//String couponCode = product.getCouponCode();
-		
-		// {couponCode}
-		
-		//ResponseEntity<Coupon> coupon = restTemplate.getForEntity("http://COUPON-SERVICE/coupons/"+product.getCouponCode(), Coupon.class);
-		
 		Coupon coupon = restClient.getCoupon(product.getCouponCode());
 		
-
+		Double discount = coupon.getDiscount();
 		
-		product.setPrice(product.getPrice()-coupon.getDiscount());
+		product.setPrice(product.getPrice()- discount);
 		
 		return productService.insertProduct(product);
 	}
-	
-	
-	
 
 }
