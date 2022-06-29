@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb
+    url: jdbc:mysql://localhost:3306/zensar
     username: root
     password: root
   jpa:
@@ -29,7 +29,12 @@ eureka:
     prefer-ip-address: true
     
       
-    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*" 
 
     
   
