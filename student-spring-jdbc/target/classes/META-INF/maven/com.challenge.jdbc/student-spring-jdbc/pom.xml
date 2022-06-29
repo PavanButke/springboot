@@ -17,6 +17,12 @@
 
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.21</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
@@ -25,6 +31,12 @@
 			<version>5.3.21</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
