@@ -2,16 +2,49 @@
 #  port: 1212
 
 
-management:
-  server:
-    port: 8082
+#management:
+#  server:
+#    port: 8082
 
+management:
   endpoints:
     web:
       exposure:
         include: "*"
+        exclude:
+         - health
+         - beans        
+      base-path: /myactuator
+  endpoint:
+     shutdown:
+       enabled: true
+  
 
 
+        
+  info:
+    git:
+      enabled: true
+
+    env:
+      enabled: true
+ 
+      
+#info:  
+# createdBy: Pavan
+# modified: 22Jun22 
+# 
+  
+#logging:
+#  level:
+#    com:
+#      zensar: trace
+
+
+
+#springfox:
+# documentation:
+#  auto-startup: false
 
 spring:
  datasource:
@@ -25,3 +58,4 @@ spring:
   properties:
    hibernate:
     format_sql: true
+    

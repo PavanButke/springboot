@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -24,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 	private ModelMapper modelMapper;
 
 	@Override
-	public ProductDto getProduct(int productId) {
+	public ProductDto getProduct(int productId) throws OpenApiResourceNotFoundException {
 		Product product = productRepository.findById(productId).get();
 
 		return modelMapper.map(product, ProductDto.class);

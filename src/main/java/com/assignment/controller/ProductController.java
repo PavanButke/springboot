@@ -23,9 +23,7 @@ import com.assignment.entity.Product;
 import com.assignment.service.ProductService;
 
 @RestController
-@RequestMapping(value = "/product-api", produces = { MediaType.APPLICATION_JSON_VALUE,
-		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
-				MediaType.APPLICATION_XML_VALUE })
+@RequestMapping(value = "/product-api")
 public class ProductController {
 
 	// Let's add a new Layer --> Service Layer
@@ -46,8 +44,9 @@ public class ProductController {
 	@GetMapping(value = "/products/{productId}")
 	public ResponseEntity<ProductDto> getProduct(@PathVariable("productId") int productId) {
 
+		
 		return new ResponseEntity<ProductDto>(productService.getProduct(productId), HttpStatus.OK);
-
+		
 	}
 
 	@GetMapping(value = { "/products", "listOfProducts" })
