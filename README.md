@@ -1,5 +1,7 @@
 SpringSecurity--> Implementation of Spring Security over a Copoun App
 
+SpringJDBCProject ---> Implementation of JDBC Challenge/Assignment over Student App
+
 28JuneOnwards --> Changes on Product-Coupon Service converting SpringBoot app to Microservice
 
 CopounAppProject --> Where I implement all the changes taught in class on daily basis.
