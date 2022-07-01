@@ -1,0 +1,59 @@
+server:
+  port: 1212
+
+
+#management:
+#  server:
+#    port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude:
+        
+      base-path: /myactuator       
+  endpoint:
+     shutdown:
+       enabled: true
+       
+  info:
+    git:
+      enabled: true
+
+    build:
+      enabled: true
+      
+    env:
+      enabled: true
+      
+#info:  
+# createdBy: Pavan
+# modified: 22May22 
+
+logging:
+  level:
+    com:
+      zensar: debug
+      
+      
+    
+
+#springfox:
+# documentation:
+#  auto-startup: false
+
+spring:
+ datasource:
+  url: jdbc:mysql://localhost:3306/zensar
+  username: root
+  password: root
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  properties:
+   hibernate:
+    format_sql: true
+    
