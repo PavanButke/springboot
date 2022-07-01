@@ -29,6 +29,9 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
+	// http://localhost:8080/students/1001 GET
+	// @RequestMapping(value = "/students/{studentId}",method=RequestMethod.GET)
+	@GetMapping(value = "/students/{studentId}")
 	public ResponseEntity<StudentDto> getStudent(@PathVariable("studentId") int studentId) {
 //		studentService.getStudent(studentId);
 		return new ResponseEntity<StudentDto>(studentService.getStudent(studentId), HttpStatus.OK);
