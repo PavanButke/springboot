@@ -17,7 +17,9 @@ management:
   endpoint:
      shutdown:
        enabled: true
-       
+
+
+
   info:
     git:
       enabled: true
