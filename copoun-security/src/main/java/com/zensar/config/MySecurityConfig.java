@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 
 @SuppressWarnings("deprecation")
@@ -21,20 +22,28 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception{
 	
 		http 
-				 .authorizeHttpRequests()
+				.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+				.and()
+				.authorizeHttpRequests()
+				.antMatchers("/login").permitAll()
 				 .antMatchers("/notsecure/**").hasRole("NORMAL")
+				 .antMatchers("/copoun-api/**").hasRole("ADMIN")
 				 .anyRequest()
 				 .authenticated()
 				 .and()
-				 .httpBasic();
-		
+				 .httpBasic()
+				 .and()
+				 .formLogin()
+				 .loginPage("/login");
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.inMemoryAuthentication().withUser("Pavan").password(this.passwordEncoder().encode( "sigmaMale")).roles("USER");
+		auth.inMemoryAuthentication().withUser("Pavan").password(this.passwordEncoder().encode( "sigmaMale")).roles("NORMAL");
+		auth.inMemoryAuthentication().withUser("Admin").password(this.passwordEncoder().encode( "admin")).roles("ADMIN");
+		
 	}
 	
 	@Bean
