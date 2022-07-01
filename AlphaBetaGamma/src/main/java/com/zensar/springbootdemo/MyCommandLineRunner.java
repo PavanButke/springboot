@@ -12,7 +12,7 @@ public class MyCommandLineRunner implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("MyCommandLineRunner "+Arrays.toString(args));
+		System.out.println("MyCommandLineRunnerE  "+Arrays.toString(args));
 		
 	}
 }
