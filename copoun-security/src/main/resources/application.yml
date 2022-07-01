@@ -1,0 +1,21 @@
+#spring.datasource.url= jdbc:mysql://localhost:3306/zensar
+#spring.datasource.username= root
+#spring.datasource.password= root
+#spring.jpa.hibernate.ddl-auto=create
+
+spring:
+ datasource:
+  url: jdbc:mysql://localhost:3306/zensar
+  username: root
+  password: root
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  properties:
+   hibernate:
+    format_sql: true
+  
+   
+
+   
