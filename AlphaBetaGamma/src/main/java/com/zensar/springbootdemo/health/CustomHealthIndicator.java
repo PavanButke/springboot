@@ -18,7 +18,7 @@ public class CustomHealthIndicator extends AbstractHealthIndicator {
 		Random random = new Random();
 		int randomNo = random.nextInt(100);
 		if (randomNo % 2 == 0) {
-		 builder.up();
+			builder.up();
 		} 
 		else {
 			    builder.down();

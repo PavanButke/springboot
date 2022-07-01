@@ -1,5 +1,5 @@
-#server:
-#  port: 1212
+server:
+  port: 1212
 
 
 #management:
@@ -36,6 +36,9 @@ logging:
   level:
     com:
       zensar: debug
+      
+      
+    
 
 #springfox:
 # documentation:

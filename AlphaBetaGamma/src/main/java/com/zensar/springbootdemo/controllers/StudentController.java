@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,9 +23,7 @@ import com.zensar.springbootdemo.entity.Student;
 import com.zensar.springbootdemo.service.StudentService;
 
 @RestController
-@RequestMapping(value = "/student-api", produces = { MediaType.APPLICATION_JSON_VALUE,
-		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
-				MediaType.APPLICATION_XML_VALUE })
+@RequestMapping(value = "/student-api" )
 public class StudentController {
 
 	@Autowired
@@ -87,4 +86,6 @@ public class StudentController {
 		return new ResponseEntity<List<StudentDto>>(studentService.findByStudentNameAndAge(studentName, age), HttpStatus.OK);
 	}
 	
+	
+
 }
