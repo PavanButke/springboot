@@ -34,7 +34,10 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 				 .httpBasic()
 				 .and()
 				 .formLogin()
-				 .loginPage("/login");
+				 .loginPage("/login")	
+				 .loginProcessingUrl("/dologin")
+				 .defaultSuccessUrl("/copoun-api/copouns/");
+				 
 	}
 
 	@SuppressWarnings("deprecation")
