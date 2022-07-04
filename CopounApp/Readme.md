@@ -31,3 +31,7 @@ eg. http://localhost:8080/javaactuator/copoun-endpoint/Go100/Oohoo! , You wanna 
 [DELETE] http://localhost:8080/javaactuator/copoun-endpoint/{code}
 
 * All Endpoint Tested
+
+## Exception Handling Implemented
+
+## Spring AOP Implemented
