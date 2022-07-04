@@ -34,7 +34,7 @@ public class CopounController {
 	@GetMapping(value = "/copouns/{copounId}")
 	public ResponseEntity<CopounDto> getCopoun(@PathVariable("copounId") int copounId) {
 //		return copounService.getCopoun(copounId);
-
+		
 		return new ResponseEntity<CopounDto>(copounService.getCopoun(copounId), HttpStatus.OK);
 	}
 

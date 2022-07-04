@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+
 public class CopounAppApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
