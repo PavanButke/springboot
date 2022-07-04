@@ -11,11 +11,11 @@ SpringJDBCProject ---> Implementation of JDBC Challenge/Assignment over Student 
 
 ThymleafSampl --> Assignment given to Implement the logic using Thymleaf --> SpringBoot + Thymleaf
 
+ProductService --> Assignment was given to create an Product Service SpringBoot Project.
+
 CopounAppProject --> Where I implement all the changes taught in class on daily basis.
 
-PavanProject --> It Student Project , here I have implemented changes to be made on Student App.
-
-ProductService --> Assignment was given to create an Product Service SpringBoot Project
+PavanProject --> It Student Project , here I have implemented changes to be made on Student App. + Applied entire #Jenkins Operations over it.
 
 ServiceDiscovery --> It is a project where I have implemented Eureka , OpenFeign to create a microservice,
 
