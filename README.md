@@ -1,3 +1,8 @@
+#Kindly Navigate Around Code Using This Branches
+
+
+28JuneOnwards --> Changes on Product-Coupon Service converting SpringBoot app to Microservice
+
 SpringSecurity--> Implementation of Spring Security over a Copoun App
 
 SpringJDBCProject ---> Implementation of JDBC Challenge/Assignment over Student App
