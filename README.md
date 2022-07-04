@@ -1,11 +1,15 @@
 # Kindly Navigate Around Code Using This Branches
 
 
-28JuneOnwards --> Changes on Product-Coupon Service converting SpringBoot app to Microservice
+MicroserviceA_Z --> Implementation of all Microservice Concept like OpenFeign,Eureka Converting the SpringBoot App to Microservice , till before Jenkins
+
+restTemplate --> It was implementation of Connecting two project using webservice i.e. ProductService and CouponService.
 
 SpringSecurity--> Implementation of Spring Security over a Copoun App
 
 SpringJDBCProject ---> Implementation of JDBC Challenge/Assignment over Student App
+
+ThymleafSampl --> Assignment given to Implement the logic using Thymleaf --> SpringBoot + Thymleaf
 
 CopounAppProject --> Where I implement all the changes taught in class on daily basis.
 
@@ -13,11 +17,7 @@ PavanProject --> It Student Project , here I have implemented changes to be made
 
 ProductService --> Assignment was given to create an Product Service SpringBoot Project
 
-ThymleafSampl --> Assignment given to Implement the logic using Thymleaf --> SpringBoot + Thymleaf
-
-restTemplate --> It was implementation of Connecting two project using webservice i.e. ProductService and CouponService.
-
 ServiceDiscovery --> It is a project where I have implemented Eureka , OpenFeign to create a microservice,
 
-28JuneOnwards --> Changes on Product-Coupon Service converting SpringBoot app to Microservice
+
 
