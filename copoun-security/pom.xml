@@ -16,6 +16,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,7 +38,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		
+
 		</dependency>
 
 		<dependency>
@@ -69,6 +70,30 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+	<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+
+
+            
+      <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+  
+</dependency>
+      
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/com.springsource.javax.xml.bind -->
+		
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/com.springsource.javax.xml.bind -->
+
+		
 
 	</dependencies>
 
