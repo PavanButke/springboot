@@ -34,7 +34,7 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 				.authorizeRequests()
 				.antMatchers("/token").permitAll()
 				.antMatchers("/copoun-api").hasAnyRole("ADMIN")
-				.antMatchers("//copoun-api/notsecure").hasAnyRole("USER")
+				.antMatchers("/notsecure").hasAnyRole("USER")
 				 .anyRequest()
 				 .authenticated()
 				 .and()
