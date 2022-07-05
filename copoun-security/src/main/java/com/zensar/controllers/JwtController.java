@@ -19,6 +19,8 @@ import com.zensar.service.UserCredService;
 
 @RestController
 public class JwtController {
+	
+	
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -52,4 +54,6 @@ public class JwtController {
 		return ResponseEntity.ok(new JwtResponse(token));
 
 	}
+	
+	
 }

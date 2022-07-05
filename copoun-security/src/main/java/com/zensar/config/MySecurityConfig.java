@@ -11,8 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.zensar.service.UserCredService;
+
 
 
 @SuppressWarnings("deprecation")
@@ -22,7 +24,8 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private UserCredService userCredService;
-
+	@Autowired
+	private JwtAuthenticationFilter jwtAuthenticationFilter;
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 	
@@ -33,16 +36,15 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 				.disable()
 				.authorizeRequests()
 				.antMatchers("/token").permitAll()
-				.antMatchers("/copoun-api").hasAnyRole("ADMIN")
-				.antMatchers("/notsecure").hasAnyRole("USER")
 				 .anyRequest()
 				 .authenticated()
 				 .and()
 				 .sessionManagement()
 				 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		
+	   http.addFilterBefore(jwtAuthenticationFilter , UsernamePasswordAuthenticationFilter.class);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
@@ -57,10 +59,10 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter{
 			
 	}
 	
-
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-
+	    return super.authenticationManagerBean();
 	}
+	
+	
 }
