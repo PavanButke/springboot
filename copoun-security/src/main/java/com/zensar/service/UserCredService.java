@@ -16,12 +16,14 @@ public class UserCredService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		if (userName.equals("Admin")) {
 			return new User ( "Admin", "Admin", new ArrayList<>()); // userName , Pass 
-			} else {
+			}else {
+				if (userName.equals("User")) {
+					return new User ( "User", "User", new ArrayList<>()); // userName , Pass 
+					}
+			else {
 			throw new UsernameNotFoundException ("User Does Not Exists !!");
 			}
-			
 	}
-	
-	
 
+	}
 }
