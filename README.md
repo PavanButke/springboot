@@ -8,7 +8,7 @@ Implementation of all Microservice Concept like OpenFeign,Eureka Converting the 
 It was implementation of Connecting two project using webservice i.e. ProductService and CouponService.
 
 ## SpringSecurity-->
-Implementation of Spring Security over a Copoun App
+Implementation of Spring Security over a Copoun App (Authourization , Authentication , FormBased Login , httpbased / alertbased , JWT , OAuth2 Concept Implemented).
 
 ## SpringJDBCProject ---> 
 Implementation of JDBC Challenge/Assignment over Student App
